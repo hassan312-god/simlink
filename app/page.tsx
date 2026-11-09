@@ -121,9 +121,7 @@ export default function Home() {
                   <h1>{hero.name}</h1>
                   <p>{hero.description}</p>
                   <div className="feature-actions">
-                    {hero.ready
-                      ? <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>
-                      : <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>}
+                    <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>
                     <Link className="round" aria-label={'Voir la page de ' + hero.name} href={'/jeux/' + hero.id}><Play size={13} fill="currentColor"/></Link>
                   </div>
                 </div>
