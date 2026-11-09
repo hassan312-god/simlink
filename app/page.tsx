@@ -76,7 +76,7 @@ export default function Home() {
           <div className="fast-list">
             {fastLaunch.map(g => (
               <Link key={g.id} href={'/jeux/' + g.id}>
-                <img src={g.image} alt="" width={30} height={30}/>{g.name}
+                <img src={g.image} alt="" width={30} height={30}/><span>{g.name}</span>
               </Link>
             ))}
           </div>
