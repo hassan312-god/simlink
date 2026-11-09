@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 import pytest
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-from simlink.core import Bridge, Config, Minecraft, Rcon, SimlinkError
+from simlink.core import Bridge, Config, Factorio, Kerbal, Minecraft, Rcon, SimlinkError
 from simlink.dashboard import make_server
 
 
@@ -24,6 +24,14 @@ def fake_rcon():
             try:
                 while True:
                     rid, kind, body = Rcon.receive(self.request)
+                    # Vanilla Minecraft drops the client when two requests share one segment.
+                    self.request.settimeout(0.05)
+                    try:
+                        if self.request.recv(1, socketserver.socket.MSG_PEEK):
+                            return
+                    except OSError:
+                        pass
+                    self.request.settimeout(None)
                     text = body.decode()
                     if kind == 3:
                         self.request.sendall(Rcon.packet(rid if text == 'test-password' else -1, 2, ''))
@@ -161,7 +169,7 @@ def test_http_token_origin_and_live_read(config, fake_rcon):
 
 def test_mcp_official_client_process(config, tmp_path, fake_rcon):
     path=tmp_path/'test-config.json'
-    path.write_text(json.dumps({'host':config.host,'port':config.port,'password':config.password}))
+    path.write_text(json.dumps({'game':'minecraft','host':config.host,'port':config.port,'password':config.password}))
     async def scenario():
         params=StdioServerParameters(command=sys.executable,args=['-m','simlink','--config',str(path),'mcp'])
         async with stdio_client(params) as (read,write):
@@ -169,6 +177,7 @@ def test_mcp_official_client_process(config, tmp_path, fake_rcon):
                 await client.initialize()
                 result=await client.list_tools()
                 assert {tool.name for tool in result.tools}=={'minecraft_observe','minecraft_player','minecraft_propose','simlink_action_status'}
+                assert (await client.read_resource('simlink://capabilities'))
                 observation=await client.call_tool('minecraft_observe',{})
                 assert not observation.isError and 'Alex' in str(observation.content)
                 proposal=await client.call_tool('minecraft_propose', {'action':'set_time','arguments':{'value':'day'},'reason':'Test MCP'})
@@ -212,3 +221,100 @@ def test_tcp_disconnect_after_write_is_unknown(config):
         assert 'pu être exécutée' in result['result']
     finally:
         server.shutdown();server.server_close()
+
+
+def test_legacy_config_without_game_is_minecraft(tmp_path):
+    path=tmp_path/'config.json'
+    path.write_text(json.dumps({'host':'127.0.0.1','port':25575,'password':'x'}))
+    assert Config.load(path).game=='minecraft'
+    with pytest.raises(SimlinkError): Config('127.0.0.1',1,'x',tmp_path,'doom')
+
+
+@pytest.fixture
+def fake_factorio():
+    received=[]
+    class Handler(socketserver.BaseRequestHandler):
+        def handle(self):
+            try:
+                while True:
+                    rid,kind,body=Rcon.receive(self.request); text=body.decode()
+                    if kind==3:
+                        self.request.sendall(Rcon.packet(rid if text=='test-password' else -1,2,'')); continue
+                    received.append(text)
+                    if text.startswith('/silent-command rcon.print(helpers.table_to_json({tick'): answer='{"tick":5371,"players":1,"daytime":0.3,"paused":false,"evolution":0.0003,"speed":1}\n'
+                    elif text=='/players online': answer='Online players (1):\n  engineer (online)\n'
+                    elif text=='/time': answer='1 minute and 29 seconds\n'
+                    elif text=='/version': answer='2.1.24\n'
+                    elif "get_player('engineer')" in text: answer='{"name":"engineer","online":true,"surface":"nauvis","position":{"x":1.5,"y":-2},"health":250}\n'
+                    else: answer=''
+                    self.request.sendall(Rcon.packet(rid,0,answer))
+            except (SimlinkError,OSError): pass
+    server=socketserver.ThreadingTCPServer(('127.0.0.1',0),Handler); server.daemon_threads=True
+    threading.Thread(target=server.serve_forever,daemon=True).start()
+    yield server.server_address[1],received
+    server.shutdown(); server.server_close()
+
+
+def test_factorio_adapter(tmp_path, fake_factorio):
+    config=Config('127.0.0.1',fake_factorio[0],'test-password',tmp_path,'factorio')
+    bridge=Bridge(config)
+    assert isinstance(bridge.adapter,Factorio)
+    observed=bridge.adapter.observe()
+    assert observed['state']['tick']==5371 and 'engineer' in observed['players']
+    assert bridge.adapter.player('engineer')['data']['health']==250
+    with pytest.raises(SimlinkError): bridge.adapter.player("x'); game.print('pwned")
+    for action,args in [('set_daytime',{'value':'noon'}),('announce',{'text':"a' .. os.exit() .. '"}),('announce',{'text':'x'*201}),('pause',{'value':True})]:
+        with pytest.raises(SimlinkError): bridge.adapter.command_for(action,args)
+    item=bridge.propose('set_daytime',{'value':'day'},'Test')
+    assert item['command']=='/silent-command game.surfaces.nauvis.daytime = 0'
+    assert not any('daytime = 0' in r for r in fake_factorio[1])
+    assert bridge.decide(item['id'],True)['status']=='response_received'
+    assert fake_factorio[1].count('/silent-command game.surfaces.nauvis.daytime = 0')==1
+    assert bridge.adapter.command_for('announce',{'text':'Bonjour, équipe !'})=="/silent-command game.print('[Simlink] Bonjour, équipe !')"
+
+
+class FakeKrpc:
+    class Control:
+        throttle=0.0; sas=False; current_stage=3
+        def activate_next_stage(self): self.current_stage-=1
+    class Flight: mean_altitude=1234.56; speed=87.1
+    class Body: name='Kerbin'
+    class Orbit: body=None; apoapsis_altitude=80000.4; periapsis_altitude=-500.2
+    class Vessel:
+        name='Simlink 1'; situation='VesselSituation.flying'; control=None; orbit=None
+        def flight(self): return FakeKrpc.Flight()
+    class SpaceCenter: ut=42.0; active_vessel=None
+    def __init__(self):
+        self.space_center=FakeKrpc.SpaceCenter(); self.space_center.active_vessel=FakeKrpc.Vessel()
+        self.control=self.space_center.active_vessel.control=FakeKrpc.Control()
+        self.space_center.active_vessel.orbit=FakeKrpc.Orbit(); self.space_center.active_vessel.orbit.body=FakeKrpc.Body()
+        self.closed=0
+    def close(self): self.closed+=1
+
+
+def test_kerbal_adapter(tmp_path):
+    fake=FakeKrpc()
+    config=Config('127.0.0.1',50000,'',tmp_path,'kerbal')
+    bridge=Bridge(config,Kerbal(config,connection=lambda: fake))
+    observed=bridge.adapter.observe()
+    assert observed['vessel']=='Simlink 1' and observed['situation']=='flying' and observed['altitude_m']==1234.6 and observed['body']=='Kerbin'
+    assert fake.closed==1
+    for action,args in [('set_throttle',{'value':101}),('set_throttle',{'value':50.5}),('set_sas',{'value':'maybe'}),('next_stage',{}),('warp',{'value':1})]:
+        with pytest.raises(SimlinkError): bridge.adapter.command_for(action,args)
+    item=bridge.propose('set_throttle',{'value':50},'Test')
+    assert fake.control.throttle==0.0
+    assert bridge.decide(item['id'],True)['result']=='throttle=0.5'
+    stage=bridge.propose('next_stage',{'value':'now'},'Test')
+    assert bridge.decide(stage['id'],True)['result']=='stage=2'
+    with pytest.raises(SimlinkError): bridge.adapter.player('Jeb')
+
+
+def test_kerbal_requires_krpc_package(tmp_path, monkeypatch):
+    import builtins
+    real=builtins.__import__
+    def fake_import(name,*args,**kwargs):
+        if name=='krpc': raise ImportError
+        return real(name,*args,**kwargs)
+    monkeypatch.setattr(builtins,'__import__',fake_import)
+    with pytest.raises(SimlinkError, match='krpc'):
+        Kerbal(Config('127.0.0.1',50000,'',tmp_path,'kerbal')).observe()

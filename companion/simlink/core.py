@@ -19,37 +19,63 @@ class SimlinkError(Exception):
     pass
 
 
+GAMES = {
+    'minecraft': {'label': 'Minecraft Java', 'transport': 'rcon', 'port': 25575},
+    'factorio': {'label': 'Factorio', 'transport': 'rcon', 'port': 27015},
+    'kerbal': {'label': 'Kerbal Space Program', 'transport': 'krpc', 'port': 50000},
+}
+
+
 @dataclass(frozen=True)
 class Config:
     host: str
     port: int
     password: str
     state_dir: Path
+    game: str = 'minecraft'
 
     def __post_init__(self):
-        # This first release only talks to loopback: run it on the game server's PC.
+        if self.game not in GAMES:
+            raise SimlinkError('Jeu inconnu. Jeux pris en charge : ' + ', '.join(GAMES))
+        # Every release so far only talks to loopback: run Simlink on the game's PC.
         if self.host not in ('127.0.0.1', '::1'):
-            raise SimlinkError('RCON doit être local : utilisez 127.0.0.1 ou ::1.')
+            raise SimlinkError('La connexion doit être locale : utilisez 127.0.0.1 ou ::1.')
         if type(self.port) is not int or not 1 <= self.port <= 65535:
-            raise SimlinkError('Port RCON invalide.')
-        if not self.password or len(self.password.encode()) > 1024 or '\x00' in self.password:
-            raise SimlinkError('Mot de passe RCON manquant ou invalide.')
+            raise SimlinkError('Port invalide.')
+        if self.transport == 'rcon':
+            if not self.password or len(self.password.encode()) > 1024 or '\x00' in self.password:
+                raise SimlinkError('Mot de passe RCON manquant ou invalide.')
+        elif not isinstance(self.password, str) or '\x00' in self.password:
+            raise SimlinkError('Mot de passe invalide.')
+
+    @property
+    def transport(self):
+        return GAMES[self.game]['transport']
+
+    @property
+    def label(self):
+        return GAMES[self.game]['label']
 
     @property
     def target(self):
-        return hashlib.sha256(f'{self.host}:{self.port}:{self.password}'.encode()).hexdigest()
+        return hashlib.sha256(f'{self.game}:{self.host}:{self.port}:{self.password}'.encode()).hexdigest()
 
     @classmethod
     def load(cls, path: Path):
         try:
             raw = json.loads(path.read_text(encoding='utf-8'))
-            return cls(raw['host'], raw['port'], raw['password'], path.resolve().parent)
+            # Configurations written by 0.1.0 have no game field and were Minecraft only.
+            return cls(raw['host'], raw['port'], raw.get('password', ''), path.resolve().parent, raw.get('game', 'minecraft'))
         except (OSError, ValueError, KeyError, TypeError) as exc:
             raise SimlinkError('Configuration absente ou invalide. Lancez simlink setup.') from exc
 
 
 class Rcon:
-    """Bounded Source RCON framing, auth and multi-packet replies over loopback."""
+    """Bounded Source RCON framing, auth and multi-packet replies over loopback.
+
+    Packets are sent one at a time: the vanilla Minecraft server closes the
+    connection when two requests arrive in the same TCP segment.
+    """
     def __init__(self, config: Config, timeout: float = 5):
         self.config = config
         self.timeout = timeout
@@ -92,6 +118,7 @@ class Rcon:
         deadline = time.monotonic() + self.timeout
         try:
             with socket.create_connection((self.config.host, self.config.port), self.timeout) as sock:
+                sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
                 def read():
                     remaining = deadline - time.monotonic()
                     if remaining <= 0:
@@ -107,14 +134,19 @@ class Rcon:
                         break
                 else:
                     raise SimlinkError('Réponse d’authentification RCON invalide.')
-                # A second harmless command provides an explicit reply boundary.
                 sent = True
-                sock.sendall(self.packet(2, 2, command) + self.packet(3, 2, 'list'))
-                parts = []
-                total = 0
+                sock.sendall(self.packet(2, 2, command))
+                rid, kind, body = read()
+                if rid != 2 or kind != 0:
+                    raise SimlinkError('Identifiant de réponse RCON inattendu.')
+                parts = [body]
+                total = len(body)
+                # A second harmless request, sent only after the first reply, marks the
+                # end of a possibly fragmented response without coalescing packets.
+                sock.sendall(self.packet(3, 2, self.boundary()))
                 for _ in range(1024):
                     rid, kind, body = read()
-                    if rid == 3 and kind == 0:
+                    if rid == 3:
                         return b''.join(parts).decode('utf-8', errors='replace')
                     if rid != 2 or kind != 0:
                         raise SimlinkError('Identifiant de réponse RCON inattendu.')
@@ -129,23 +161,42 @@ class Rcon:
                 raise SimlinkError('Réponse RCON non confirmée : la commande a pu être exécutée. Vérifiez le jeu avant de recommencer.') from exc
             if isinstance(exc, SimlinkError):
                 raise
-            raise SimlinkError('Serveur RCON inaccessible. Vérifiez le serveur, le port et enable-rcon.') from exc
+            raise SimlinkError('Serveur RCON inaccessible. Vérifiez le serveur, le port et l’activation de RCON.') from exc
+
+    def boundary(self):
+        return '/version' if self.config.game == 'factorio' else 'list'
 
 
 class Adapter(Protocol):
+    label: str
+    actions: dict  # action -> {'label': str, 'values': [(value, label)] | None}
+
     def observe(self) -> dict: ...
     def player(self, name: str) -> dict: ...
     def command_for(self, action: str, arguments: dict) -> str: ...
     def execute(self, command: str) -> str: ...
 
 
-def player_name(name):
-    if not isinstance(name, str) or not re.fullmatch(r'[A-Za-z0-9_]{1,16}', name):
-        raise SimlinkError('Pseudo Minecraft invalide (1 à 16 caractères alphanumériques ou _).')
+def player_name(name, pattern=r'[A-Za-z0-9_]{1,16}', message='Pseudo invalide (1 à 16 caractères alphanumériques ou _).'):
+    if not isinstance(name, str) or not re.fullmatch(pattern, name):
+        raise SimlinkError(message)
     return name
 
 
+def single_value(action, arguments, allowed):
+    if set(arguments) != {'value'} or arguments['value'] not in allowed:
+        raise SimlinkError(f'{action} attend {{"value": ' + '|'.join(map(str, allowed)) + '}.')
+    return arguments['value']
+
+
 class Minecraft:
+    label = 'Minecraft Java'
+    actions = {
+        'set_time': {'label': 'Changer l’heure', 'values': [('day', 'Jour'), ('noon', 'Midi'), ('night', 'Nuit'), ('midnight', 'Minuit')]},
+        'set_weather': {'label': 'Changer la météo', 'values': [('clear', 'Ciel clair'), ('rain', 'Pluie'), ('thunder', 'Orage')]},
+        'teleport': {'label': 'Téléporter un joueur', 'values': None},
+    }
+
     def __init__(self, config: Config):
         self.rcon = Rcon(config)
 
@@ -153,7 +204,7 @@ class Minecraft:
         return self.rcon.execute(command)
 
     def observe(self):
-        return {'game': 'Minecraft Java', 'players': self.execute('list'),
+        return {'game': self.label, 'players': self.execute('list'),
                 'time': self.execute('time query daytime'), 'observed_at': time.time()}
 
     def player(self, name):
@@ -164,14 +215,10 @@ class Minecraft:
     def command_for(self, action, arguments):
         if not isinstance(arguments, dict):
             raise SimlinkError('Les paramètres doivent être un objet.')
-        if action == 'set_time' and set(arguments) == {'value'}:
-            value = arguments['value']
-            if value in ('day', 'noon', 'night', 'midnight'):
-                return f'time set {value}'
-        if action == 'set_weather' and set(arguments) == {'value'}:
-            value = arguments['value']
-            if value in ('clear', 'rain', 'thunder'):
-                return f'weather {value}'
+        if action == 'set_time':
+            return 'time set ' + single_value(action, arguments, ['day', 'noon', 'night', 'midnight'])
+        if action == 'set_weather':
+            return 'weather ' + single_value(action, arguments, ['clear', 'rain', 'thunder'])
         if action == 'teleport' and set(arguments) == {'player', 'x', 'y', 'z'}:
             name = player_name(arguments['player'])
             for key, bound in [('x', 100000), ('y', 320), ('z', 100000)]:
@@ -183,10 +230,169 @@ class Minecraft:
         raise SimlinkError('Action ou paramètres non autorisés. Actions : set_time, set_weather, teleport.')
 
 
+class Factorio:
+    """Factorio headless server over its built-in RCON.
+
+    Reads use console commands and `/silent-command rcon.print(...)` with fixed Lua.
+    Writes are fixed Lua templates; `/silent-command` disables achievements on the
+    save, which the proposal text states.
+    """
+    label = 'Factorio'
+    actions = {
+        'set_daytime': {'label': 'Changer l’heure (Nauvis)', 'values': [('day', 'Jour'), ('night', 'Nuit')]},
+        'pause': {'label': 'Mettre en pause / reprendre', 'values': [('on', 'Pause'), ('off', 'Reprendre')]},
+        'announce': {'label': 'Message dans le chat', 'values': None},
+    }
+    STATE = ("/silent-command rcon.print(helpers.table_to_json({tick=game.tick, "
+             "players=#game.connected_players, daytime=game.surfaces.nauvis.daytime, paused=game.tick_paused, "
+             "evolution=game.forces.enemy.get_evolution_factor('nauvis'), speed=game.speed}))")
+
+    def __init__(self, config: Config):
+        self.rcon = Rcon(config)
+
+    def execute(self, command):
+        return self.rcon.execute(command)
+
+    def observe(self):
+        state = self.execute(self.STATE).strip()
+        try:
+            parsed = json.loads(state) if state else {}
+        except ValueError:
+            parsed = {'raw': state}
+        return {'game': self.label, 'players': self.execute('/players online').strip(),
+                'time': self.execute('/time').strip(), 'state': parsed, 'observed_at': time.time()}
+
+    def player(self, name):
+        name = player_name(name, r'[A-Za-z0-9_.-]{1,60}', 'Nom de joueur Factorio invalide.')
+        lua = (f"/silent-command local p=game.get_player('{name}') if p then rcon.print(helpers.table_to_json("
+               "{name=p.name, online=p.connected, surface=p.surface.name, position=p.position, "
+               "health=p.character and p.character.health or nil})) else rcon.print('absent') end")
+        raw = self.execute(lua).strip()
+        try:
+            return {'player': name, 'data': json.loads(raw)}
+        except ValueError:
+            return {'player': name, 'data': raw}
+
+    def command_for(self, action, arguments):
+        if not isinstance(arguments, dict):
+            raise SimlinkError('Les paramètres doivent être un objet.')
+        if action == 'set_daytime':
+            value = single_value(action, arguments, ['day', 'night'])
+            return f"/silent-command game.surfaces.nauvis.daytime = {'0' if value == 'day' else '0.5'}"
+        if action == 'pause':
+            value = single_value(action, arguments, ['on', 'off'])
+            return f"/silent-command game.tick_paused = {'true' if value == 'on' else 'false'}"
+        if action == 'announce' and set(arguments) == {'text'}:
+            text = arguments['text']
+            if not isinstance(text, str) or not re.fullmatch(r"[A-Za-z0-9 À-ÿ.,!?:;()-]{1,200}", text):
+                raise SimlinkError('Texte limité à 200 caractères simples, sans guillemets ni apostrophes.')
+            return "/silent-command game.print('[Simlink] " + text + "')"
+        raise SimlinkError('Action ou paramètres non autorisés. Actions : set_daytime, pause, announce.')
+
+
+class Kerbal:
+    """Kerbal Space Program through the kRPC mod (RPC port, no stream connection).
+
+    Needs the optional `krpc` package. `connection` lets tests inject a fake client.
+    """
+    label = 'Kerbal Space Program'
+    actions = {
+        'set_throttle': {'label': 'Régler les gaz (%)', 'values': [(0, '0 %'), (25, '25 %'), (50, '50 %'), (100, '100 %')]},
+        'set_sas': {'label': 'SAS', 'values': [('on', 'Activer'), ('off', 'Désactiver')]},
+        'next_stage': {'label': 'Étage suivant', 'values': [('now', 'Déclencher')]},
+    }
+
+    def __init__(self, config: Config, connection=None):
+        self.config = config
+        self._connection = connection
+
+    def client(self):
+        if self._connection is not None:
+            return self._connection()
+        try:
+            import krpc  # noqa: WPS433
+        except ImportError as exc:
+            raise SimlinkError('Le paquet krpc est requis : pip install "simlink-local[kerbal]".') from exc
+        try:
+            return krpc.connect(name='Simlink', address=self.config.host, rpc_port=self.config.port, stream_port=None, timeout=5)
+        except (OSError, ConnectionError) as exc:
+            raise SimlinkError('Serveur kRPC inaccessible. Lancez KSP avec le mod kRPC et démarrez son serveur.') from exc
+
+    def observe(self):
+        conn = self.client()
+        try:
+            sc = conn.space_center
+            vessel = sc.active_vessel
+            if vessel is None:
+                return {'game': self.label, 'vessel': None, 'ut': sc.ut, 'observed_at': time.time()}
+            flight = vessel.flight()
+            orbit = vessel.orbit
+            return {'game': self.label, 'vessel': vessel.name, 'situation': str(vessel.situation).split('.')[-1],
+                    'body': orbit.body.name, 'altitude_m': round(flight.mean_altitude, 1),
+                    'speed_m_s': round(flight.speed, 1), 'apoapsis_m': round(orbit.apoapsis_altitude, 1),
+                    'periapsis_m': round(orbit.periapsis_altitude, 1), 'throttle': vessel.control.throttle,
+                    'sas': vessel.control.sas, 'stage': vessel.control.current_stage, 'ut': sc.ut,
+                    'observed_at': time.time()}
+        finally:
+            self.close(conn)
+
+    def player(self, name):
+        raise SimlinkError('KSP n’a pas de liste de joueurs : utilisez l’observation du vaisseau actif.')
+
+    def command_for(self, action, arguments):
+        if not isinstance(arguments, dict):
+            raise SimlinkError('Les paramètres doivent être un objet.')
+        if action == 'set_throttle' and set(arguments) == {'value'}:
+            value = arguments['value']
+            if type(value) is not int or not 0 <= value <= 100:
+                raise SimlinkError('set_throttle attend un entier de 0 à 100.')
+            return f'throttle {value}'
+        if action == 'set_sas':
+            return 'sas ' + single_value(action, arguments, ['on', 'off'])
+        if action == 'next_stage':
+            single_value(action, arguments, ['now'])
+            return 'stage'
+        raise SimlinkError('Action ou paramètres non autorisés. Actions : set_throttle, set_sas, next_stage.')
+
+    def execute(self, command):
+        conn = self.client()
+        try:
+            vessel = conn.space_center.active_vessel
+            if vessel is None:
+                raise SimlinkError('Aucun vaisseau actif.')
+            control = vessel.control
+            if command.startswith('throttle '):
+                control.throttle = int(command.split()[1]) / 100
+                return f'throttle={control.throttle}'
+            if command.startswith('sas '):
+                control.sas = command.endswith('on')
+                return f'sas={control.sas}'
+            if command == 'stage':
+                control.activate_next_stage()
+                return f'stage={control.current_stage}'
+            raise SimlinkError('Commande KSP inconnue.')
+        finally:
+            self.close(conn)
+
+    @staticmethod
+    def close(conn):
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
+ADAPTERS = {'minecraft': Minecraft, 'factorio': Factorio, 'kerbal': Kerbal}
+
+
+def make_adapter(config: Config) -> Adapter:
+    return ADAPTERS[config.game](config)
+
+
 class Bridge:
     def __init__(self, config: Config, adapter: Adapter | None = None):
         self.config = config
-        self.adapter = adapter or Minecraft(config)
+        self.adapter = adapter or make_adapter(config)
         config.state_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
         self.db_path = config.state_dir / 'simlink.sqlite3'
         with self.db() as db:

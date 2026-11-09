@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {
   Home as HomeIcon, LayoutGrid, Library, Search, SlidersHorizontal, Heart, Bell,
-  ChevronLeft, ChevronRight, ChevronDown, Play, Download, Gamepad2, Minus, Square, X,
+  ChevronLeft, ChevronRight, ChevronDown, Play, Download, Gamepad2,
   ShieldCheck, ArrowUpRight, Check, Bookmark,
 } from 'lucide-react';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from '@/components/ui/dialog';
@@ -24,7 +24,7 @@ function readFavorites(): string[] {
 }
 
 function status(g: Game) {
-  return g.ready ? 'CONNECTEUR V0.1' : 'CONCEPT';
+  return g.ready ? 'CONNECTEUR V0.2' : 'CONCEPT';
 }
 
 export default function Home() {
@@ -59,7 +59,6 @@ export default function Home() {
   return (
     <div className="store-bg">
       <div className="store-window">
-        <div className="window-controls" aria-hidden="true"><Minus size={13}/><Square size={11}/><X size={13}/></div>
 
         <aside className="side">
           <Link className="logo" href="/">
@@ -84,7 +83,7 @@ export default function Home() {
           <div className="side-bottom">
             <a className="download-card" href="/install">
               <img src="/games/minecraft-build.webp" alt=""/>
-              <div><b>Simlink Local 0.1.0</b><span>Moteur Minecraft · RCON</span>
+              <div><b>Simlink Local 0.2.0</b><span>Minecraft · Factorio · KSP</span>
                 <div className="bar"><i style={{width: '68%'}}/></div></div>
               <small>68%</small>
             </a>
@@ -204,8 +203,8 @@ export default function Home() {
 
       <Dialog open={notice} onOpenChange={setNotice}>
         <DialogContent className="store-dialog">
-          <DialogHeader><DialogTitle>Simlink Local 0.1.0</DialogTitle><DialogDescription>Première version du moteur Minecraft Java.</DialogDescription></DialogHeader>
-          <p className="dialog-copy">Le moteur lit l’état d’un serveur Minecraft Java via RCON et propose des actions que vous approuvez localement. Les visuels des jeux appartiennent à leurs éditeurs ; Simlink est un projet indépendant.</p>
+          <DialogHeader><DialogTitle>Simlink Local 0.2.0</DialogTitle><DialogDescription>Minecraft Java validé sur un vrai serveur, Factorio et Kerbal Space Program ajoutés.</DialogDescription></DialogHeader>
+          <p className="dialog-copy">Le moteur lit l’état de votre jeu (RCON pour Minecraft et Factorio, kRPC pour KSP) et propose des actions que vous approuvez localement. Les visuels des jeux appartiennent à leurs éditeurs ; Simlink est un projet indépendant.</p>
           <a className="pill" href="/install"><Download size={14}/>Voir le guide d’installation</a>
         </DialogContent>
       </Dialog>

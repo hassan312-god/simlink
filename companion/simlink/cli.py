@@ -4,11 +4,11 @@ import json
 import os
 from pathlib import Path
 import sys
-from .core import Bridge, Config, SimlinkError
+from .core import GAMES, Bridge, Config, SimlinkError
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Simlink local — Minecraft Java RCON / MCP')
+    parser = argparse.ArgumentParser(description='Simlink local — pont MCP pour Minecraft Java, Factorio et KSP')
     parser.add_argument('--config', type=Path, default=Path.home() / '.simlink' / 'config.json')
     sub = parser.add_subparsers(dest='mode', required=True)
     sub.add_parser('setup', help='Configuration interactive locale')
@@ -24,20 +24,30 @@ def main():
         if args.mode == 'setup':
             if path.exists():
                 raise SimlinkError(f'Configuration déjà présente : {path}. Modifiez ce fichier localement pour la changer.')
-            print('Exécutez Simlink sur le même PC que votre serveur Minecraft Java.')
-            print('Le port RCON doit rester fermé à Internet. Le mot de passe sera enregistré localement.')
-            port = int(input('Port RCON [25575] : ').strip() or '25575')
-            password = getpass.getpass('Mot de passe rcon.password (masqué) : ')
-            config = Config('127.0.0.1', port, password, path.parent)
+            print('Exécutez Simlink sur le même PC que votre jeu ou serveur de jeu.')
+            print('Jeux : ' + ', '.join(f'{key} ({value["label"]})' for key, value in GAMES.items()))
+            game = input('Jeu [minecraft] : ').strip() or 'minecraft'
+            if game not in GAMES:
+                raise SimlinkError('Jeu inconnu.')
+            default = GAMES[game]['port']
+            if GAMES[game]['transport'] == 'rcon':
+                print('Le port RCON doit rester fermé à Internet. Le mot de passe sera enregistré localement.')
+                port = int(input(f'Port RCON [{default}] : ').strip() or str(default))
+                password = getpass.getpass('Mot de passe RCON (masqué) : ')
+            else:
+                print('Lancez KSP avec le mod kRPC et démarrez son serveur (adresse 127.0.0.1).')
+                port = int(input(f'Port RPC kRPC [{default}] : ').strip() or str(default))
+                password = ''
+            config = Config('127.0.0.1', port, password, path.parent, game)
             path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
             # Exclusive creation prevents accidental overwrite and sets Unix permissions.
             with os.fdopen(os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), 'w', encoding='utf-8') as out:
-                json.dump({'host': config.host, 'port': config.port, 'password': config.password}, out, indent=2)
+                json.dump({'game': config.game, 'host': config.host, 'port': config.port, 'password': config.password}, out, indent=2)
             print('Configuration enregistrée. Lancez simlink doctor, puis simlink dashboard.')
             return
         if args.mode == 'client-config':
             # An absolute executable works even when a GUI host has no activated virtualenv.
-            print(json.dumps({'mcpServers': {'simlink': {'command': sys.executable,
+            print(json.dumps({'mcpServers': {'simlink-' + Config.load(path).game: {'command': sys.executable,
                 'args': ['-m', 'simlink', '--config', str(path), 'mcp']}}}, indent=2))
             return
         config = Config.load(path)

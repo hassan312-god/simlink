@@ -62,7 +62,8 @@ def make_server(bridge, port=8766):
                 return
             try:
                 if path == '/api/state':
-                    self.respond(200, {'halted': bridge.halted(), 'actions': bridge.actions(), 'target': f'{bridge.config.host}:{bridge.config.port}'})
+                    self.respond(200, {'halted': bridge.halted(), 'actions': bridge.actions(), 'target': f'{bridge.config.host}:{bridge.config.port}',
+                                       'game': bridge.config.label, 'presets': [{'action': key, 'label': value['label'], 'values': value['values']} for key, value in bridge.adapter.actions.items() if value['values']]})
                 elif path == '/api/observe':
                     self.respond(200, bridge.adapter.observe())
                 else:

@@ -6,28 +6,24 @@ Simlink est un projet de plateforme pour relier des jeux de simulation à des as
 
 | Jeu | Statut dans Simlink | Connexion |
 | --- | --- | --- |
-| Minecraft Java | Premier adaptateur implémenté en version 0.1.0 | Serveur Minecraft Java local administré par l’utilisateur, RCON et serveur MCP local |
-| Cities: Skylines II | Concept au catalogue | Adaptateur à développer |
-| Microsoft Flight Simulator | Concept au catalogue | Adaptateur à développer |
-| Euro Truck Simulator 2 | Concept au catalogue | Adaptateur à développer |
-| Stardew Valley | Concept au catalogue | Adaptateur à développer |
-| Kerbal Space Program | Concept au catalogue | Adaptateur à développer |
-| Factorio | Concept au catalogue | Adaptateur à développer |
+| Minecraft Java | Adaptateur 0.2.0, **validé sur un vrai serveur 1.21.11** | Serveur Minecraft Java local, RCON |
+| Factorio | Adaptateur 0.2.0, **validé sur un vrai serveur headless 2.1.24** | Serveur Factorio local, RCON |
+| Kerbal Space Program | Adaptateur 0.2.0, validé avec un double de l’API, à tester en jeu | Mod kRPC local |
+| 15 autres jeux du catalogue | Concepts | Adaptateurs à développer |
 
-Les nombres d’outils affichés pour les six concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod de ces jeux n’est actuellement fourni ou intégré par Simlink.
+Les nombres d’outils affichés pour les concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod n’est fourni par Simlink.
 
 ## Ce qui fonctionne aujourd’hui
 
-Le moteur `companion/` propose quatre outils MCP pour Minecraft Java : observer les joueurs et l’heure, lire des informations sur un joueur, proposer une action et suivre son statut. Les actions d’écriture demandent une approbation dans un panneau local. La communication avec le serveur Minecraft passe par RCON sur l’ordinateur de l’utilisateur.
+Le moteur `companion/` expose pour chaque jeu des outils MCP de lecture (`<jeu>_observe`, `<jeu>_player`), une proposition d’action à liste fermée (`<jeu>_propose`) et le suivi d’une action. Les écritures attendent une approbation dans un panneau local. Un installeur (`install.sh` / `install.ps1`) crée l’environnement et lance la configuration.
 
-Le protocole RCON, le serveur MCP et le mécanisme d’approbation ont été vérifiés avec des tests automatisés. Une validation sur une vraie partie Minecraft et avec les clients IA de l’utilisateur reste à faire. Le site hébergé présente le catalogue et distribue le moteur local ; il ne pilote pas directement un jeu installé sur ton ordinateur.
-
-Voir le [guide d’installation](companion/README.md) et la [validation actuelle](companion/VALIDATION.md). Le [site Simlink](https://simlink-hub.buzzybean129.chatgpt.site/) présente l’interface.
+Voir le [guide d’installation](companion/README.md) et la [validation actuelle](companion/VALIDATION.md). Le site hébergé présente le catalogue et distribue le moteur ; il ne pilote pas directement un jeu installé sur votre ordinateur.
 
 ## Développement prévu
 
 - Étudier, jeu par jeu, les interfaces autorisées : mod, API, plugin, serveur ou fichier local.
 - Documenter les mods compatibles et leurs conditions d’installation avant de les afficher comme connectables.
+- Valider KSP en jeu, puis Claude Desktop et Gemini CLI sur Windows et macOS.
 - Ajouter de nouveaux adaptateurs MCP et vérifier chacun avec le jeu réel.
 - Étudier l’usage de l’API Steam pour enrichir le catalogue ou la bibliothèque d’un utilisateur, selon les permissions disponibles.
 
