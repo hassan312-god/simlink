@@ -10,8 +10,8 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} fro
 import {games, type Game} from '@/lib/games';
 import {cn} from '@/lib/utils';
 
-const order = ['minecraft', 'factorio', 'kerbal', 'flight', 'truck', 'stardew', 'cities'];
-const sorted = order.map(id => games.find(g => g.id === id)!).filter(Boolean);
+const sorted = games;
+const N = sorted.length;
 const fastLaunch = sorted.slice(0, 4);
 const categories = ['Tous', 'Sandbox', 'Gestion', 'Simulation'];
 
@@ -45,8 +45,8 @@ export default function Home() {
 
   const like = (id: string) => setLiked(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
   const hero = sorted[featured];
-  const sideLeft = [sorted[(featured + 5) % 7], sorted[(featured + 6) % 7]];
-  const sideRight = [sorted[(featured + 1) % 7], sorted[(featured + 2) % 7]];
+  const sideLeft = [sorted[(featured + N - 2) % N], sorted[(featured + N - 1) % N]];
+  const sideRight = [sorted[(featured + 1) % N], sorted[(featured + 2) % N]];
   const next = () => setFeatured(f => (f + 1) % sorted.length);
   const prev = () => setFeatured(f => (f + sorted.length - 1) % sorted.length);
 
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="fast-list">
             {fastLaunch.map(g => (
               <button key={g.id} onClick={() => setSelected(g)}>
-                <img src={g.image} alt="" width={30} height={30}/>{g.name}
+                <img src={g.cover} alt="" width={30} height={40}/>{g.name}
               </button>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function Home() {
             <section className="carousel" aria-label="À la une">
               {sideLeft.map((g, i) => (
                 <button key={g.id} className={cn('fan', i === 0 ? 'fan-far-left' : 'fan-left')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
-                  <img src={g.image} alt=""/>
+                  <img src={g.cover} alt=""/>
                 </button>
               ))}
               <article className="feature" style={{backgroundImage: `url(${hero.image})`}}>
@@ -131,7 +131,7 @@ export default function Home() {
               </article>
               {sideRight.map((g, i) => (
                 <button key={g.id} className={cn('fan', i === 0 ? 'fan-right' : 'fan-far-right')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
-                  <img src={g.image} alt=""/>
+                  <img src={g.cover} alt=""/>
                 </button>
               ))}
             </section>
@@ -153,9 +153,10 @@ export default function Home() {
             {grid.map(g => (
               <article key={g.id} className="card">
                 <button className="cover" onClick={() => setSelected(g)} aria-label={'Ouvrir ' + g.name}>
-                  <img src={g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
+                  <img src={g.cover} alt={'Jaquette de ' + g.name} loading="lazy" width={600} height={900}/>
+                  {g.ready && <span className="ribbon">CONNECTEUR</span>}
                 </button>
-                <span className="tag">{status(g)}</span>
+                <span className="kicker">{g.mode.toUpperCase()}</span>
                 <div className="card-title">
                   <h3>{g.name}</h3>
                   <button className={cn('mini-heart', liked.includes(g.id) && 'on')} aria-pressed={liked.includes(g.id)} aria-label={'Favori ' + g.name} onClick={() => like(g.id)}><Heart size={13}/></button>

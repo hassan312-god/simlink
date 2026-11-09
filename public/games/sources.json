@@ -54,5 +54,77 @@
   {
     "file": "minecraft-build.webp",
     "source_url": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/CREATE_BuildAlmostAnything.png"
+  },
+  {
+    "file": "covers/minecraft.webp",
+    "source_url": "derived: portrait crop of minecraft.webp (same source)"
+  },
+  {
+    "file": "covers/factorio.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/kerbal.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/cities.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/flight.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/truck.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/american-truck.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/270880/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/stardew.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/farming.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2300320/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/satisfactory.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/dyson.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/space-engineers.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244850/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/oxygen.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/rimworld.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/zomboid.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/valheim.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/nomanssky.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/library_600x900_2x.jpg"
+  },
+  {
+    "file": "covers/subnautica.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/library_600x900_2x.jpg"
   }
 ]
