@@ -1,36 +1,213 @@
 'use client';
-import {useEffect,useState} from 'react';
-import {useReducedMotion} from 'motion/react';
-import {Layers, Compass, Bookmark, Blocks, Terminal, BookOpen, ArrowUpRight, ArrowRight, Search, Plus, Check, ChevronRight, ChevronDown, Play, Download, SlidersHorizontal, Box, Command, CircleHelp, Cpu, ShieldCheck, Radio, Zap, Menu, X, Globe2, MousePointer2} from 'lucide-react';
-import {Button} from '@/components/ui/button';
-import {Badge} from '@/components/ui/badge';
-import {Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter} from '@/components/ui/card';
-import {Dialog,DialogContent,DialogHeader,DialogTitle,DialogDescription} from '@/components/ui/dialog';
-import {ToggleGroup,ToggleGroupItem} from '@/components/ui/toggle-group';
-import {InputGroup,InputGroupInput,InputGroupAddon} from '@/components/ui/input-group';
-import {Empty,EmptyHeader,EmptyTitle,EmptyDescription,EmptyMedia} from '@/components/ui/empty';
-import {Alert,AlertTitle,AlertDescription} from '@/components/ui/alert';
-import {BorderBeam} from '@/components/magicui/border-beam';
+import {useEffect, useState} from 'react';
+import Link from 'next/link';
+import {
+  Home as HomeIcon, LayoutGrid, Library, Search, SlidersHorizontal, Heart, Bell,
+  ChevronLeft, ChevronRight, ChevronDown, Play, Download, Gamepad2, Minus, Square, X,
+  ShieldCheck, ArrowUpRight, Check, Bookmark,
+} from 'lucide-react';
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from '@/components/ui/dialog';
 import {games, type Game} from '@/lib/games';
 import {cn} from '@/lib/utils';
-const skills=[{name:'Observer',icon:Search,desc:'Comprendre l’état du monde avant de prendre une décision.',prompt:'Observe les données disponibles avec les outils de lecture. Résume les faits, identifie les données manquantes et distingue les observations des hypothèses.'},{name:'Planifier',icon:Compass,desc:'Transformer une idée en étapes concrètes et vérifiables.',prompt:'À partir de mon objectif, observe d’abord le jeu. Propose un plan de trois étapes avec les outils disponibles. Explique chaque effet et attends mon approbation avant une action.'},{name:'Optimiser',icon:Zap,desc:'Repérer ce qui freine votre simulation et explorer des pistes.',prompt:'Examine les ressources et les contraintes accessibles. Identifie un point de blocage et propose une amélioration. Ne prétends pas mesurer une donnée que tes outils ne fournissent pas.'},{name:'Expliquer',icon:BookOpen,desc:'Donner du sens à chaque choix et à ses conséquences.',prompt:'Explique l’état observé de ma simulation avec des mots simples. Présente les conséquences possibles d’un choix, tes incertitudes et ce qu’il faudrait vérifier.'}];
-function Providers(){return <div className="providers"><span className="provider claude"><span>✳</span>Claude</span><span className="provider gemini"><span>✦</span>Gemini</span><span className="provider gpt"><Command size={15}/>GPT</span></div>}
-export default function Home(){const [view,setView]=useState('Découvrir');const [category,setCategory]=useState('Tous');const [query,setQuery]=useState('');const [sort,setSort]=useState(false);const [mobile,setMobile]=useState(false);const [saved,setSaved]=useState<string[]>([]);const [loaded,setLoaded]=useState(false);const [selected,setSelected]=useState<Game|null>(null);const [dialog,setDialog]=useState<string|null>(null);const [skill,setSkill]=useState(skills[0]);const [copied,setCopied]=useState(false);const [model,setModel]=useState('Claude');const [run,setRun]=useState(false);const reduced=useReducedMotion();
-useEffect(()=>{try{const stored=JSON.parse(localStorage.getItem('simlink-favorites')||'[]');if(Array.isArray(stored))setSaved(stored.filter(x=>typeof x==='string'&&games.some(g=>g.id===x)))}catch{}setLoaded(true)},[]);
-useEffect(()=>{if(loaded)try{localStorage.setItem('simlink-favorites',JSON.stringify(saved))}catch{}},[saved,loaded]);
-function navigate(v:string){setView(v);setMobile(false);setQuery('');setCategory('Tous')}
-function favorite(id:string){setSaved(s=>s.includes(id)?s.filter(x=>x!==id):[...s,id])}
-let filtered=games.filter(g=>(category==='Tous'||category==='Installable'&&g.ready||g.category===category)&&g.name.toLowerCase().includes(query.toLowerCase())&&(view!=='Ma bibliothèque'||saved.includes(g.id)));if(sort)filtered=[...filtered].sort((a,b)=>a.name.localeCompare(b.name));
-return <div className="studio"><aside className={cn('rail',mobile&&'rail-open')}><a className="brand" href="/"><span className="brand-icon"><Layers size={23}/></span>simlink<span className="version">BETA</span></a><button className="space-switch" onClick={()=>setDialog('space')}><span className="space-avatar">S</span><span>Espace personnel<small>Votre terrain de jeu</small></span><ChevronDown size={14}/></button><span className="rail-label">EXPLORER</span><nav aria-label="Navigation principale">{[{name:'Découvrir',icon:Compass},{name:'Ma bibliothèque',icon:Bookmark},{name:'Skills',icon:Blocks},{name:'Playground',icon:Terminal}].map(({name,icon:Icon})=><button key={name} onClick={()=>navigate(name)} className={cn('nav-item',view===name&&'nav-active')} aria-current={view===name?'page':undefined}><Icon size={18}/><span>{name}</span>{name==='Découvrir'?<span className="active-light"/>:name==='Ma bibliothèque'&&saved.length>0?<span className="nav-count">{saved.length}</span>:null}</button>)}</nav><span className="rail-label second-label">CONSTRUIRE</span><nav><a className="nav-item" href="/install"><Download size={18}/><span>Installer le moteur</span><ArrowUpRight size={13}/></a><button className="nav-item" onClick={()=>setDialog('docs')}><BookOpen size={18}/><span>Documentation</span></button><button className="nav-item" onClick={()=>setDialog('build')}><Box size={18}/><span>Créer un connecteur</span></button></nav><div className="rail-bottom"><div className="local-callout"><div className="callout-icon"><Cpu size={20}/></div><span className="tiny-label">SIMLINK LOCAL / 0.1</span><h3>Votre monde.<br/>Votre contrôle.</h3><p>Le premier connecteur Minecraft est à installer.</p><a href="/install">Commencer <ArrowUpRight size={15}/></a></div><button className="help-link" onClick={()=>setDialog('docs')}><CircleHelp size={16}/>Un coup de main ?<ArrowUpRight size={13}/></button><div className="rail-profile"><span className="profile-avatar">S</span><div>Mon workspace<small>Mode exploration</small></div><span className="status-light"/></div></div></aside>{mobile&&<button className="mobile-scrim" aria-label="Fermer le menu" onClick={()=>setMobile(false)}/>}
-<div className="studio-body"><header className="topbar"><div className="breadcrumb"><button className="menu-toggle" aria-label="Ouvrir le menu" onClick={()=>setMobile(!mobile)}>{mobile?<X size={19}/>:<Menu size={19}/>}</button><span>Workspace</span><ChevronRight size={13}/><b>{view}</b></div><div className="top-actions"><span className="local-label"><span className="status-light"/>Local-first</span><Button asChild size="sm" variant="outline"><a href="/install"><Plus data-icon="inline-start"/>Nouvelle connexion</a></Button><span className="top-avatar">S</span></div></header><main className="studio-main"><div className="intro"><div><span className="eyebrow">{view==='Découvrir'?'VOTRE PROCHAIN COÉQUIPIER EST UNE IA':'VOTRE ESPACE SIMLINK'}</span><h1>{view==='Découvrir'?'Un nouveau monde de possibilités.':view==='Ma bibliothèque'?'Vos univers, à portée de main.':view==='Skills'?'Donnez une méthode à votre IA.':'De l’intention à l’action.'}</h1><p>{view==='Découvrir'?'Vos simulations préférées. L’intelligence de votre choix.':view==='Ma bibliothèque'?'Les connecteurs que vous avez enregistrés sur cet appareil.':view==='Skills'?'Des instructions réutilisables, à associer aux outils de votre jeu.':'Explorez le fonctionnement de Simlink avec un exemple guidé.'}</p></div><Badge variant="outline"><Box/>MCP ready</Badge></div>
-{view==='Découvrir'&&<><section className="cinema"><img className="cinema-bg" src="/games/minecraft.webp" alt="Paysage de Minecraft avec montagnes et cerisiers en fleurs" fetchPriority="high"/><div className="cinema-shade"/><div className="cinema-content"><Badge variant="secondary"><span className="status-light"/>MINECRAFT JAVA · CONNECTEUR V0.1</Badge><h2>Vos mondes.<br/>Une nouvelle<br/><span>intelligence.</span></h2><p>Observez, imaginez, décidez.<br/>L’IA vous accompagne. Vous gardez les commandes.</p><div className="hero-buttons"><Button asChild size="lg"><a href="/install">Connecter mon premier jeu<ArrowRight data-icon="inline-end"/></a></Button><Button variant="outline" size="lg" onClick={()=>{setRun(false);setDialog('demo')}}><Play data-icon="inline-start"/>Voir la démo</Button></div><div className="hero-providers"><span>AVEC VOTRE ASSISTANT</span><Providers/></div></div><div className="hero-side"><span className="image-credit"><span className="status-light"/>CAPTURE OFFICIELLE · MINECRAFT</span><div className="flow-preview"><div className="flow-heading"><span className="flow-logo"><Layers size={16}/></span>Une idée. Trois étapes.<span className="preview-tag">APERÇU</span></div><div className="flow-item"><span>01</span><div>Votre IA observe<small>L’état du monde, en contexte.</small></div><Search size={16}/></div><div className="flow-item"><span>02</span><div>Elle propose une action<small>Une intention claire, un outil précis.</small></div><Zap size={16}/></div><div className="flow-item"><span>03</span><div>Vous donnez le feu vert<small>Rien ne change sans votre accord.</small></div><ShieldCheck size={16}/></div>{!reduced&&<BorderBeam size={90} duration={14} colorFrom="#ba9dff" colorTo="#6960bf"/>}</div><span className="hero-caption">L’aventure commence sur votre ordinateur.</span></div></section><div className="trust-row"><span><PlugIcon/>Un protocole ouvert</span><i/><span><Blocks size={16}/>Des skills à combiner</span><i/><span><ShieldCheck size={16}/>Toujours sous votre contrôle</span><a href="/install">Découvrir le fonctionnement <ArrowUpRight size={14}/></a></div></>}
-{(view==='Découvrir'||view==='Ma bibliothèque')&&<section className="catalog" id="catalog"><div className="section-head"><div><div className="section-title"><h2>{view==='Découvrir'?'Choisissez votre univers':'Ma bibliothèque'}</h2><span>{view==='Découvrir'?'07':String(saved.length).padStart(2,'0')}</span></div><p>{view==='Découvrir'?'Un premier connecteur disponible. D’autres mondes à explorer.':'Enregistrer un jeu ne crée pas de connexion à votre ordinateur.'}</p></div><Button variant="ghost" size="sm" onClick={()=>setDialog('build')}>Proposer un jeu<Plus data-icon="inline-end"/></Button></div><div className="catalog-controls"><ToggleGroup type="single" value={category} onValueChange={v=>v&&setCategory(v)} spacing={1} size="sm" aria-label="Catégorie de jeu">{['Tous','Simulation','Gestion','Sandbox','Installable'].map(c=><ToggleGroupItem key={c} value={c}>{c}{c==='Installable'&&<span className="status-light"/>}</ToggleGroupItem>)}</ToggleGroup><div className="search-controls"><InputGroup><InputGroupAddon><Search/></InputGroupAddon><InputGroupInput placeholder="Rechercher un jeu…" aria-label="Rechercher un jeu" value={query} onChange={e=>setQuery(e.target.value)}/></InputGroup><Button size="icon" variant="outline" aria-label="Trier par nom" aria-pressed={sort} onClick={()=>setSort(!sort)}><SlidersHorizontal/></Button></div></div><div className="game-grid">{filtered.map(g=><Card key={g.id} className="game-card gap-0 overflow-hidden p-0"><button className="game-media" onClick={()=>setSelected(g)} aria-label={'Découvrir '+g.name}><img src={g.image} alt={'Capture du jeu '+g.name} loading="lazy" width="800" height="450"/><div className="media-vignette"/><div className="media-status"><Badge variant={g.ready?'default':'secondary'}>{g.ready?<><span className="status-light"/>Installable</>:'Concept'}</Badge></div><span className="game-genre">{g.genre}</span><span className="media-arrow"><ArrowUpRight size={20}/></span></button><CardHeader className="gap-2 px-5 pt-5 pb-3"><div className="card-title-row"><CardTitle>{g.name}</CardTitle><Button variant="ghost" size="icon-sm" aria-label={(saved.includes(g.id)?'Retirer ':'Enregistrer ')+g.name} aria-pressed={saved.includes(g.id)} onClick={()=>favorite(g.id)}><Bookmark fill={saved.includes(g.id)?'currentColor':'none'}/></Button></div><CardDescription>{g.description}</CardDescription></CardHeader><CardContent className="px-5 pb-5"><div className="game-tags"><Badge variant="outline">{g.ready?'MCP / RCON':'MCP envisagé'}</Badge><span>{g.tools} {g.ready?'outils':'outils envisagés'}</span></div></CardContent><CardFooter className="justify-between px-5 py-3"><div className="mini-providers"><span>✳</span><span>✦</span><Command size={13}/><small>{g.ready?'Client MCP local':'À développer'}</small></div>{g.ready?<Button size="sm" variant="ghost" asChild><a href="/install">Installer<ArrowUpRight data-icon="inline-end"/></a></Button>:<Button size="sm" variant="ghost" onClick={()=>setSelected(g)}>Explorer<ArrowUpRight data-icon="inline-end"/></Button>}</CardFooter></Card>)}</div>{filtered.length===0&&<Empty><EmptyHeader><EmptyMedia variant="icon"><Search/></EmptyMedia><EmptyTitle>{view==='Ma bibliothèque'?'Votre collection commence ici.':'Aucun univers trouvé.'}</EmptyTitle><EmptyDescription>{view==='Ma bibliothèque'?'Utilisez le signet d’une carte pour la retrouver dans votre bibliothèque.':'Essayez un autre nom ou une autre catégorie.'}</EmptyDescription></EmptyHeader><Button variant="outline" onClick={()=>{navigate('Découvrir');setQuery('');setCategory('Tous')}}>Explorer tous les jeux</Button></Empty>}<div className="catalog-bottom"><span><span className="status-light"/>1 adaptateur implémenté <span className="muted-dot">·</span> 6 concepts à développer</span><button onClick={()=>setDialog('credits')}>À propos des visuels <ArrowUpRight size={12}/></button></div></section>}
-{view==='Skills'&&<div className="skill-grid">{skills.map((s,i)=><Card key={s.name} className="skill-card"><CardHeader><div className="skill-top"><s.icon size={25}/><span>SKILL / 0{i+1}</span></div><CardTitle>{s.name}</CardTitle><CardDescription>{s.desc}</CardDescription></CardHeader><CardContent><p className="skill-note">Instruction réutilisable · À adapter aux outils disponibles.</p></CardContent><CardFooter><Button variant="outline" onClick={()=>{setSkill(s);setCopied(false);setDialog('skill')}}>Ouvrir le skill<ArrowUpRight data-icon="inline-end"/></Button></CardFooter></Card>)}</div>}
-{view==='Playground'&&<section className="playground-panel"><img src="/games/cities.webp" alt="Vue de Cities Skylines II"/><div className="playground-content"><Badge variant="secondary">Démonstration scénarisée</Badge><h2>Une ville.<br/>Un objectif.<br/>Votre IA.</h2><p>Découvrez la boucle observer, proposer, valider. Aucun modèle ni jeu n’est connecté dans cette démonstration.</p><Button onClick={()=>{setRun(false);setDialog('demo')}}><Play data-icon="inline-start"/>Lancer la démo</Button></div></section>}
-<section className="bottom-cta"><div className="cta-icon"><Layers size={27}/></div><div><span className="eyebrow">DE L’IDÉE AU PREMIER OUTIL</span><h2>Un monde à connecter ?</h2><p>Chaque jeu a sa propre interface. Construisez le pont qui lui correspond.</p></div><Button variant="outline" onClick={()=>setDialog('build')}>Créer un connecteur<ArrowUpRight data-icon="inline-end"/></Button></section><footer className="site-footer"><a href="/" className="footer-wordmark">simlink<span>®</span></a><span>Un protocole. De nouveaux possibles.</span><div><button onClick={()=>setDialog('docs')}>Documentation</button><button onClick={()=>setDialog('credits')}>Crédits</button><span>LOCAL-FIRST, ALWAYS.</span></div></footer></main></div>
-<Dialog open={selected!==null} onOpenChange={v=>!v&&setSelected(null)}><DialogContent className="game-dialog p-0 overflow-hidden"><DialogHeader className="sr-only"><DialogTitle>{selected?.name}</DialogTitle><DialogDescription>{selected?.ready?'Adaptateur local Minecraft disponible à installer.':'Concept de connecteur, non opérationnel.'}</DialogDescription></DialogHeader>{selected&&<><img className="dialog-art" src={selected.image} alt={selected.name}/><div className="detail-body"><Badge variant={selected.ready?'default':'secondary'}>{selected.ready?'Adaptateur v0.1':'Concept à développer'}</Badge><h2>{selected.name}</h2><p>{selected.description}</p><Alert><ShieldCheck/><AlertTitle>{selected.ready?'Installation sur votre PC':'Pas encore de connexion réelle'}</AlertTitle><AlertDescription>{selected.ready?'Le moteur est implémenté et testé au niveau protocole. La validation sur votre serveur Minecraft reste nécessaire.':'Les outils de ce jeu sont envisagés. Son adaptateur doit encore être développé et testé.'}</AlertDescription></Alert><div className="detail-meta"><span>{selected.category}</span><span>{selected.tools} {selected.ready?'outils MCP':'outils envisagés'}</span></div><div className="detail-actions">{selected.ready?<Button asChild><a href="/install">Installer Simlink Local<Download data-icon="inline-end"/></a></Button>:<Button variant="secondary" onClick={()=>favorite(selected.id)}>{saved.includes(selected.id)?<Check data-icon="inline-start"/>:<Bookmark data-icon="inline-start"/>}{saved.includes(selected.id)?'Enregistré':'Enregistrer le concept'}</Button>}<Button variant="outline" asChild><a href={selected.source} target="_blank" rel="noreferrer">Voir le jeu<ArrowUpRight data-icon="inline-end"/></a></Button></div></div></>}</DialogContent></Dialog>
-<Dialog open={dialog!==null} onOpenChange={v=>!v&&setDialog(null)}><DialogContent className="info-dialog"><DialogHeader><DialogTitle>{dialog==='demo'?'Une session, étape par étape.':dialog==='skill'?skill.name:dialog==='build'?'Créez le prochain connecteur.':dialog==='credits'?'Les mondes derrière les images.':dialog==='space'?'Votre espace personnel.':'Comment fonctionne Simlink ?'}</DialogTitle><DialogDescription>{dialog==='demo'?'Exemple illustratif : aucun appel IA ni aucune action dans un jeu.':dialog==='skill'?'Une instruction prête à adapter à votre assistant.':dialog==='credits'?'Visuels authentiques provenant des pages officielles des jeux.':'Le moteur tourne sur votre ordinateur. Vous gardez le contrôle.'}</DialogDescription></DialogHeader>
-{dialog==='demo'?<><ToggleGroup type="single" value={model} onValueChange={v=>{if(v){setModel(v);setRun(false)}}} aria-label="Assistant de démonstration">{['Claude','Gemini','GPT'].map(m=><ToggleGroupItem value={m} key={m}>{m}</ToggleGroupItem>)}</ToggleGroup><div className="demo-chat"><span>VOUS</span><p>Comment réduire les embouteillages de ma ville ?</p>{run?<><span>{model.toUpperCase()} · RÉPONSE D’EXEMPLE</span><p>Je proposerais une liaison entre le quartier industriel et l’autoroute. Il faudrait d’abord examiner le trafic et le budget disponibles.</p><div className="demo-tool"><Terminal size={15}/>Proposition simulée · Aucune exécution</div></>:<div className="demo-wait">Lancez l’exemple pour découvrir la réponse.</div>}</div><Button onClick={()=>setRun(!run)}>{run?'Réinitialiser':'Lancer l’exemple'}<Play data-icon="inline-end"/></Button><Button variant="outline" asChild><a href="/install">Passer au moteur Minecraft réel<ArrowRight data-icon="inline-end"/></a></Button></>:dialog==='skill'?<><pre className="skill-prompt">{skill.prompt}</pre><Button onClick={async()=>{try{await navigator.clipboard.writeText(skill.prompt);setCopied(true)}catch{setCopied(false)}}}>{copied?'Instruction copiée':'Copier l’instruction'}{copied&&<Check data-icon="inline-end"/>}</Button><p className="dialog-note">Une instruction ne crée pas d’outils : votre jeu doit disposer d’un adaptateur compatible.</p></>:dialog==='credits'?<><div className="credits-list">{games.map(g=><a key={g.id} href={g.source} target="_blank" rel="noreferrer"><img src={g.image} alt=""/><div>{g.name}<small>{g.studio} · {g.id==='minecraft'?'Minecraft.net':'Steam'}</small></div><ArrowUpRight size={16}/></a>)}</div><p className="dialog-note">Les jeux, marques et visuels appartiennent à leurs titulaires respectifs. Simlink est un projet indépendant, sans affiliation annoncée avec ces éditeurs.</p></>:dialog==='build'?<><ol className="build-steps"><li><b>Identifier l’interface du jeu</b><p>API, système de mods ou télémétrie autorisée.</p></li><li><b>Créer un adaptateur</b><p>Traduire l’état du jeu en outils de lecture et en actions précises.</p></li><li><b>Brancher MCP et tester</b><p>Définir les permissions, vérifier les réponses et garder une validation humaine.</p></li></ol><Alert><Box/><AlertTitle>Un adaptateur par jeu</AlertTitle><AlertDescription>MCP fournit un protocole commun. Il ne donne pas automatiquement accès à tous les jeux.</AlertDescription></Alert><Button asChild><a href="/downloads/simlink-local-0.1.0.zip" download>Explorer le code du moteur<Download data-icon="inline-end"/></a></Button></>:dialog==='space'?<><p className="dialog-copy">Cet espace ne nécessite pas de compte. Votre bibliothèque est conservée dans le navigateur de cet appareil. Il n’y a pas de synchronisation entre appareils.</p><Button variant="outline" onClick={()=>{navigate('Ma bibliothèque');setDialog(null)}}>Ouvrir ma bibliothèque<Bookmark data-icon="inline-end"/></Button></>:<><div className="docs-flow"><div><MonitorIcon/><b>Votre jeu</b><small>Serveur local</small></div><ArrowRight size={16}/><div><Layers size={23}/><b>Simlink</b><small>Adaptateur + MCP</small></div><ArrowRight size={16}/><div><Cpu size={23}/><b>Votre IA</b><small>Client compatible</small></div></div><p className="dialog-copy">Le premier moteur lit l’état d’un serveur Minecraft Java via RCON. Votre IA peut proposer une action, puis vous l’approuvez dans le panneau local.</p><p className="dialog-copy">Claude Desktop et Gemini CLI peuvent utiliser un serveur MCP stdio. Pour GPT, il faut un hôte compatible MCP local ; ce serveur ne se branche pas directement à l’interface web ChatGPT.</p><Button asChild><a href="/install">Suivre le guide d’installation<ArrowRight data-icon="inline-end"/></a></Button></>}
-</DialogContent></Dialog></div>}
-function PlugIcon(){return <Radio size={16}/>}
-function MonitorIcon(){return <Globe2 size={23}/>}
+
+const order = ['minecraft', 'factorio', 'kerbal', 'flight', 'truck', 'stardew', 'cities'];
+const sorted = order.map(id => games.find(g => g.id === id)!).filter(Boolean);
+const fastLaunch = sorted.slice(0, 4);
+const categories = ['Tous', 'Sandbox', 'Gestion', 'Simulation'];
+
+function readFavorites(): string[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const stored = JSON.parse(localStorage.getItem('simlink-favorites') || '[]');
+    return Array.isArray(stored) ? stored.filter(x => typeof x === 'string' && games.some(g => g.id === x)) : [];
+  } catch { return []; }
+}
+
+function status(g: Game) {
+  return g.ready ? 'CONNECTEUR V0.1' : 'CONCEPT';
+}
+
+export default function Home() {
+  const [view, setView] = useState<'home' | 'categories' | 'library'>('home');
+  const [category, setCategory] = useState('Tous');
+  const [query, setQuery] = useState('');
+  const [featured, setFeatured] = useState(0);
+  const [liked, setLiked] = useState<string[]>(readFavorites);
+  const [loaded, setLoaded] = useState(false);
+  const [selected, setSelected] = useState<Game | null>(null);
+  const [notice, setNotice] = useState(false);
+
+  useEffect(() => {
+    // Persist after the first client render; the initial value came from storage.
+    if (loaded) try { localStorage.setItem('simlink-favorites', JSON.stringify(liked)); } catch {}
+    else queueMicrotask(() => setLoaded(true));
+  }, [liked, loaded]);
+
+  const like = (id: string) => setLiked(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
+  const hero = sorted[featured];
+  const sideLeft = [sorted[(featured + 5) % 7], sorted[(featured + 6) % 7]];
+  const sideRight = [sorted[(featured + 1) % 7], sorted[(featured + 2) % 7]];
+  const next = () => setFeatured(f => (f + 1) % sorted.length);
+  const prev = () => setFeatured(f => (f + sorted.length - 1) % sorted.length);
+
+  const grid = sorted.filter(g =>
+    (view !== 'library' || liked.includes(g.id)) &&
+    (category === 'Tous' || g.category === category) &&
+    g.name.toLowerCase().includes(query.toLowerCase()));
+  const rowTitle = view === 'library' ? 'Ma bibliothèque' : view === 'categories' ? 'Catégories' : 'Connecteurs disponibles';
+
+  return (
+    <div className="store-bg">
+      <div className="store-window">
+        <div className="window-controls" aria-hidden="true"><Minus size={13}/><Square size={11}/><X size={13}/></div>
+
+        <aside className="side">
+          <Link className="logo" href="/">
+            <span className="logo-mark"><Gamepad2 size={20}/></span>
+            <span><b>SIMLINK</b><small>GAMESTORE · MCP</small></span>
+          </Link>
+          <nav className="side-nav" aria-label="Navigation">
+            {([['home', 'Accueil', HomeIcon], ['categories', 'Catégories', LayoutGrid], ['library', 'Ma bibliothèque', Library]] as const).map(([id, label, Icon]) => (
+              <button key={id} className={cn(view === id && 'active')} onClick={() => { setView(id); setCategory('Tous'); }} aria-current={view === id ? 'page' : undefined}>
+                <Icon size={16}/>{label}
+              </button>
+            ))}
+          </nav>
+          <span className="side-label">LANCEMENT RAPIDE</span>
+          <div className="fast-list">
+            {fastLaunch.map(g => (
+              <button key={g.id} onClick={() => setSelected(g)}>
+                <img src={g.image} alt="" width={30} height={30}/>{g.name}
+              </button>
+            ))}
+          </div>
+          <div className="side-bottom">
+            <a className="download-card" href="/install">
+              <img src="/games/minecraft-build.webp" alt=""/>
+              <div><b>Simlink Local 0.1.0</b><span>Moteur Minecraft · RCON</span>
+                <div className="bar"><i style={{width: '68%'}}/></div></div>
+              <small>68%</small>
+            </a>
+          </div>
+        </aside>
+
+        <main className="content">
+          <header className="topbar">
+            <label className="search">
+              <Search size={15}/>
+              <input placeholder="Rechercher un jeu" value={query} onChange={e => setQuery(e.target.value)} aria-label="Rechercher un jeu"/>
+              <SlidersHorizontal size={15}/>
+            </label>
+            <div className="top-right">
+              <button className="icon-btn" aria-label="Favoris" onClick={() => setView('library')}><Heart size={16}/>{liked.length > 0 && <span className="dot">{liked.length}</span>}</button>
+              <button className="icon-btn" aria-label="Notifications" onClick={() => setNotice(true)}><Bell size={16}/><span className="dot">1</span></button>
+              <a className="profile" href="/install">
+                <span className="avatar">S</span>
+                <span><b>Simlink Local</b><small>Installer le moteur</small></span>
+              </a>
+            </div>
+          </header>
+
+          {view === 'home' && (
+            <section className="carousel" aria-label="À la une">
+              {sideLeft.map((g, i) => (
+                <button key={g.id} className={cn('fan', i === 0 ? 'fan-far-left' : 'fan-left')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
+                  <img src={g.image} alt=""/>
+                </button>
+              ))}
+              <article className="feature" style={{backgroundImage: `url(${hero.image})`}}>
+                <div className="feature-shade"/>
+                <button className={cn('heart', liked.includes(hero.id) && 'on')} aria-pressed={liked.includes(hero.id)} aria-label="Ajouter aux favoris" onClick={() => like(hero.id)}><Heart size={15}/></button>
+                <div className="feature-text">
+                  <h1>{hero.name}</h1>
+                  <p>{hero.description}</p>
+                  <div className="feature-actions">
+                    {hero.ready
+                      ? <a className="pill" href="/install">INSTALLER</a>
+                      : <button className="pill" onClick={() => setSelected(hero)}>DÉCOUVRIR</button>}
+                    <button className="round" aria-label="Voir les détails" onClick={() => setSelected(hero)}><Play size={13} fill="currentColor"/></button>
+                  </div>
+                </div>
+              </article>
+              {sideRight.map((g, i) => (
+                <button key={g.id} className={cn('fan', i === 0 ? 'fan-right' : 'fan-far-right')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
+                  <img src={g.image} alt=""/>
+                </button>
+              ))}
+            </section>
+          )}
+
+          <section className="row-head">
+            <h2>{rowTitle}</h2>
+            <div className="row-tools">
+              {view === 'categories' && categories.map(c => (
+                <button key={c} className={cn('chip', category === c && 'chip-on')} onClick={() => setCategory(c)}>{c}</button>
+              ))}
+              <button className="link" onClick={() => setView(view === 'home' ? 'categories' : 'home')}>{view === 'home' ? 'Voir tout' : 'Accueil'}</button>
+              <button className="arrow" aria-label="Précédent" onClick={prev}><ChevronLeft size={14}/></button>
+              <button className="arrow" aria-label="Suivant" onClick={next}><ChevronRight size={14}/></button>
+            </div>
+          </section>
+
+          <section className="cards">
+            {grid.map(g => (
+              <article key={g.id} className="card">
+                <button className="cover" onClick={() => setSelected(g)} aria-label={'Ouvrir ' + g.name}>
+                  <img src={g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
+                </button>
+                <span className="tag">{status(g)}</span>
+                <div className="card-title">
+                  <h3>{g.name}</h3>
+                  <button className={cn('mini-heart', liked.includes(g.id) && 'on')} aria-pressed={liked.includes(g.id)} aria-label={'Favori ' + g.name} onClick={() => like(g.id)}><Heart size={13}/></button>
+                </div>
+                <div className="price">
+                  <span className={cn('badge', g.ready ? 'green' : 'blue')}>{g.ready ? 'PRÊT' : 'À VENIR'}</span>
+                  <s>{g.tools} outils</s>
+                  <b>{g.ready ? 'Gratuit' : 'Concept'}</b>
+                </div>
+              </article>
+            ))}
+            {grid.length === 0 && (
+              <div className="empty">
+                <Bookmark size={22}/>
+                <p>{view === 'library' ? 'Aucun favori pour l’instant. Touchez le cœur d’un jeu pour le retrouver ici.' : 'Aucun jeu ne correspond.'}</p>
+              </div>
+            )}
+          </section>
+        </main>
+      </div>
+
+      <Dialog open={selected !== null} onOpenChange={v => !v && setSelected(null)}>
+        <DialogContent className="store-dialog p-0 overflow-hidden">
+          <DialogHeader className="sr-only"><DialogTitle>{selected?.name}</DialogTitle><DialogDescription>Détails du connecteur</DialogDescription></DialogHeader>
+          {selected && <>
+            <img className="dialog-art" src={selected.image} alt=""/>
+            <div className="dialog-body">
+              <span className="tag">{status(selected)}</span>
+              <h2>{selected.name}</h2>
+              <p>{selected.description}</p>
+              <div className="dialog-note"><ShieldCheck size={15}/>{selected.ready
+                ? 'Moteur local testé au niveau protocole. Chaque action attend votre approbation dans le panneau local.'
+                : 'Connecteur à développer. Les outils annoncés sont des pistes de conception, pas des outils opérationnels.'}</div>
+              <div className="dialog-meta"><span>{selected.studio}</span><span>{selected.genre}</span><span>{selected.tools} outils{selected.ready ? '' : ' envisagés'}</span></div>
+              <div className="dialog-actions">
+                {selected.ready
+                  ? <a className="pill" href="/install"><Download size={14}/>Installer Simlink Local</a>
+                  : <button className="pill" onClick={() => like(selected.id)}>{liked.includes(selected.id) ? <Check size={14}/> : <Heart size={14}/>}{liked.includes(selected.id) ? 'Dans ma bibliothèque' : 'Suivre ce connecteur'}</button>}
+                <a className="ghost" href={selected.source} target="_blank" rel="noreferrer">Page du jeu<ArrowUpRight size={14}/></a>
+              </div>
+            </div>
+          </>}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={notice} onOpenChange={setNotice}>
+        <DialogContent className="store-dialog">
+          <DialogHeader><DialogTitle>Simlink Local 0.1.0</DialogTitle><DialogDescription>Première version du moteur Minecraft Java.</DialogDescription></DialogHeader>
+          <p className="dialog-copy">Le moteur lit l’état d’un serveur Minecraft Java via RCON et propose des actions que vous approuvez localement. Les visuels des jeux appartiennent à leurs éditeurs ; Simlink est un projet indépendant.</p>
+          <a className="pill" href="/install"><Download size={14}/>Voir le guide d’installation</a>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
