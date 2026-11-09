@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {
   Home as HomeIcon, LayoutGrid, Library, Search, SlidersHorizontal, Heart, Bell,
   ChevronLeft, ChevronRight, ChevronDown, Play, Download, Gamepad2, Minus, Square, X,
-  ShieldCheck, ArrowUpRight, Check, Bookmark,
+  Bookmark,
 } from 'lucide-react';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from '@/components/ui/dialog';
 import {games, type Game} from '@/lib/games';
@@ -34,7 +34,6 @@ export default function Home() {
   const [featured, setFeatured] = useState(0);
   const [liked, setLiked] = useState<string[]>(readFavorites);
   const [loaded, setLoaded] = useState(false);
-  const [selected, setSelected] = useState<Game | null>(null);
   const [notice, setNotice] = useState(false);
 
   useEffect(() => {
@@ -76,9 +75,9 @@ export default function Home() {
           <span className="side-label">LANCEMENT RAPIDE</span>
           <div className="fast-list">
             {fastLaunch.map(g => (
-              <button key={g.id} onClick={() => setSelected(g)}>
+              <Link key={g.id} href={'/jeux/' + g.id}>
                 <img src={g.image} alt="" width={30} height={30}/>{g.name}
-              </button>
+              </Link>
             ))}
           </div>
           <div className="side-bottom">
@@ -123,9 +122,9 @@ export default function Home() {
                   <p>{hero.description}</p>
                   <div className="feature-actions">
                     {hero.ready
-                      ? <a className="pill" href="/install">INSTALLER</a>
-                      : <button className="pill" onClick={() => setSelected(hero)}>DÉCOUVRIR</button>}
-                    <button className="round" aria-label="Voir les détails" onClick={() => setSelected(hero)}><Play size={13} fill="currentColor"/></button>
+                      ? <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>
+                      : <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>}
+                    <Link className="round" aria-label={'Voir la page de ' + hero.name} href={'/jeux/' + hero.id}><Play size={13} fill="currentColor"/></Link>
                   </div>
                 </div>
               </article>
@@ -152,9 +151,9 @@ export default function Home() {
           <section className="cards">
             {grid.map(g => (
               <article key={g.id} className="card">
-                <button className="cover" onClick={() => setSelected(g)} aria-label={'Ouvrir ' + g.name}>
+                <Link className="cover" href={'/jeux/' + g.id} aria-label={'Ouvrir la page de ' + g.name}>
                   <img src={g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
-                </button>
+                </Link>
                 <span className="tag">{status(g)}</span>
                 <div className="card-title">
                   <h3>{g.name}</h3>
@@ -176,30 +175,6 @@ export default function Home() {
           </section>
         </main>
       </div>
-
-      <Dialog open={selected !== null} onOpenChange={v => !v && setSelected(null)}>
-        <DialogContent className="store-dialog p-0 overflow-hidden">
-          <DialogHeader className="sr-only"><DialogTitle>{selected?.name}</DialogTitle><DialogDescription>Détails du connecteur</DialogDescription></DialogHeader>
-          {selected && <>
-            <img className="dialog-art" src={selected.image} alt=""/>
-            <div className="dialog-body">
-              <span className="tag">{status(selected)}</span>
-              <h2>{selected.name}</h2>
-              <p>{selected.description}</p>
-              <div className="dialog-note"><ShieldCheck size={15}/>{selected.ready
-                ? 'Moteur local testé au niveau protocole. Chaque action attend votre approbation dans le panneau local.'
-                : 'Connecteur à développer. Les outils annoncés sont des pistes de conception, pas des outils opérationnels.'}</div>
-              <div className="dialog-meta"><span>{selected.studio}</span><span>{selected.genre}</span><span>{selected.tools} outils{selected.ready ? '' : ' envisagés'}</span></div>
-              <div className="dialog-actions">
-                {selected.ready
-                  ? <a className="pill" href="/install"><Download size={14}/>Installer Simlink Local</a>
-                  : <button className="pill" onClick={() => like(selected.id)}>{liked.includes(selected.id) ? <Check size={14}/> : <Heart size={14}/>}{liked.includes(selected.id) ? 'Dans ma bibliothèque' : 'Suivre ce connecteur'}</button>}
-                <a className="ghost" href={selected.source} target="_blank" rel="noreferrer">Page du jeu<ArrowUpRight size={14}/></a>
-              </div>
-            </div>
-          </>}
-        </DialogContent>
-      </Dialog>
 
       <Dialog open={notice} onOpenChange={setNotice}>
         <DialogContent className="store-dialog">
