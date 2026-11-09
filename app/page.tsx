@@ -11,8 +11,8 @@ import {games, type Game} from '@/lib/games';
 import {cn} from '@/lib/utils';
 
 const order = ['minecraft', 'factorio', 'kerbal', 'flight', 'truck', 'stardew', 'cities'];
-const sorted = order.map(id => games.find(g => g.id === id)!).filter(Boolean);
-const fastLaunch = sorted.slice(0, 4);
+const sorted = [...order.map(id => games.find(g => g.id === id)!).filter(Boolean), ...games.filter(g => !order.includes(g.id))];
+const fastLaunch = sorted.slice(0, 7);
 const categories = ['Tous', 'Sandbox', 'Gestion', 'Simulation'];
 
 function readFavorites(): string[] {
@@ -72,7 +72,7 @@ export default function Home() {
               </button>
             ))}
           </nav>
-          <span className="side-label">LANCEMENT RAPIDE</span>
+          <span className="side-label">JEUX À EXPLORER</span>
           <div className="fast-list">
             {fastLaunch.map(g => (
               <Link key={g.id} href={'/jeux/' + g.id}>
@@ -152,16 +152,11 @@ export default function Home() {
                 <Link className="cover" href={'/jeux/' + g.id} aria-label={'Ouvrir la page de ' + g.name}>
                   <img src={g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
                 </Link>
-                <span className="tag">{status(g)}</span>
                 <div className="card-title">
-                  <h3>{g.name}</h3>
+                  <h3><Link href={'/jeux/' + g.id}>{g.name}</Link></h3>
                   <button className={cn('mini-heart', liked.includes(g.id) && 'on')} aria-pressed={liked.includes(g.id)} aria-label={'Favori ' + g.name} onClick={() => like(g.id)}><Heart size={13}/></button>
                 </div>
-                <div className="price">
-                  <span className={cn('badge', g.ready ? 'green' : 'blue')}>{g.ready ? 'PRÊT' : 'À VENIR'}</span>
-                  <s>{g.tools} outils</s>
-                  <b>{g.ready ? 'Gratuit' : 'Concept'}</b>
-                </div>
+                <div className="price"><span className={cn('badge', g.ready ? 'green' : 'blue')}>{g.ready ? 'CONNECTABLE' : 'CONCEPT'}</span><span>{g.genre}</span></div>
               </article>
             ))}
             {grid.length === 0 && (
