@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simlink-local"
+version = "0.1.0"
+description = "Local MCP bridge for Minecraft Java RCON"
+requires-python = ">=3.10"
+dependencies = ["mcp==1.30.0"]
+
+[project.scripts]
+simlink = "simlink.cli:main"
+
+[tool.setuptools.package-data]
+simlink = ["dashboard.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

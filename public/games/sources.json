@@ -1,0 +1,58 @@
+[
+  {
+    "file": "cities.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/ee0b920f27abfa62682bbb5c70862a5e18804fe2/ss_ee0b920f27abfa62682bbb5c70862a5e18804fe2.1920x1080.jpg?t=1793116151"
+  },
+  {
+    "file": "cities-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/header.jpg?t=1793116151"
+  },
+  {
+    "file": "flight.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_7bef6695583570c8714dab5acda6f08128e02f22.1920x1080.jpg?t=1787671433"
+  },
+  {
+    "file": "flight-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg?t=1787671433"
+  },
+  {
+    "file": "truck.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9/ss_e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9.1920x1080.jpg?t=1793285269"
+  },
+  {
+    "file": "truck-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/9a81dc3126c56637297b654f9dcac057cfd79b77/header.jpg?t=1793285269"
+  },
+  {
+    "file": "stardew.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.1920x1080.jpg?t=1786554168"
+  },
+  {
+    "file": "stardew-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg?t=1786554168"
+  },
+  {
+    "file": "kerbal.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_44f586b0c58ed455c309efd87ce15f46e072242b.1920x1080.jpg?t=1738037585"
+  },
+  {
+    "file": "kerbal-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header.jpg?t=1738037585"
+  },
+  {
+    "file": "factorio.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_2533e54b0bd90a29adbedb60108ed277536ad445.1920x1080.jpg?t=1792752343"
+  },
+  {
+    "file": "factorio-cover.webp",
+    "source_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ab9a2df0a77caebde20dc45adc021de8cdcf7cc5/header.jpg?t=1792752343"
+  },
+  {
+    "file": "minecraft.webp",
+    "source_url": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/EXPLORE_PDPScreenshotRefresh2024_multipleBiomes_01.png"
+  },
+  {
+    "file": "minecraft-build.webp",
+    "source_url": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/CREATE_BuildAlmostAnything.png"
+  }
+]
