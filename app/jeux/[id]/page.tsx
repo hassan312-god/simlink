@@ -27,30 +27,28 @@ export default async function GamePage({params}: {params: Promise<{id: string}>}
   return (
     <div className="detail-shell"><aside className="launcher-side detail-side"><Link href="/" className="launcher-brand"><SimlinkLogo/><span>SIMLINK</span></Link><span className="side-caption">MENU</span><nav className="launcher-nav" aria-label="Navigation principale"><Link href="/">Accueil</Link><Link href="/">Explorer</Link><Link href="/">Ma bibliothèque</Link><Link href="/install">Connecteur local</Link></nav><div className="side-rule"/><span className="side-caption">JEUX DU CATALOGUE</span><nav className="launcher-games" aria-label="Jeux du catalogue">{games.slice(0, 7).map(item => <Link href={`/jeux/${item.id}`} key={item.id} aria-current={item.id === id ? 'page' : undefined}><img src={'cover' in item && typeof item.cover === 'string' ? item.cover : item.image} alt=""/><span>{item.name}</span></Link>)}</nav></aside><main className="game-page">
       <header className="game-topbar">
-        <Link className="game-brand" href="/"><span className="logo-mark"><Gamepad2 size={21}/></span><span>SIMLINK<small>GAMESTORE · MCP</small></span></Link>
+        <span className="game-topbar-label">Fiche du jeu</span>
         <Link className="game-back" href="/"><ArrowLeft size={16}/> Retour au catalogue</Link>
       </header>
 
-      <section className="game-hero" aria-labelledby="game-title">
-        <img className="game-hero-image" src={info?.screenshots?.[0] || game.image} alt={`Première capture de ${game.name}`}/>
-        <div className="game-hero-shade"/>
-        <div className="game-hero-content">
+      <section className="detail-presentation" aria-labelledby="game-title">
+        <div className="detail-intro">
           <span className={`game-status ${game.ready ? 'ready' : ''}`}>{game.ready ? 'CONNECTEUR DISPONIBLE · V0.1' : 'CONCEPT · À DÉVELOPPER'}</span>
           <h1 id="game-title">{game.name}</h1>
-          <p>{game.description}</p>
+          <p>{info?.shortDescription || game.description}</p>
           <div className="game-hero-actions">
             {game.ready ? <Link className="game-primary" href="/install"><Download size={17}/> Installer Simlink Local</Link> : <a className="game-primary" href={game.source} target="_blank" rel="noreferrer">Voir le jeu officiel <ArrowUpRight size={17}/></a>}
-            <a className="game-secondary" href={game.source} target="_blank" rel="noreferrer">Page officielle <ArrowUpRight size={15}/></a>
+            <a className="game-secondary" href={game.source} target="_blank" rel="noreferrer">Site du jeu <ArrowUpRight size={15}/></a>
           </div>
         </div>
+        <GameGallery name={game.name} images={info?.screenshots?.length ? info.screenshots : [game.image]}/>
       </section>
 
       <div className="game-content">
         <section className="game-main-info">
           <div className="game-heading"><Gamepad2 size={19}/><span>LE JEU</span></div>
-          <h2>Découvrir {game.name}</h2>
-          <p>{info?.shortDescription || game.description}</p>
-          {info && <><GameGallery name={game.name} images={info.screenshots}/><div className="steam-description">{info.description.split(/\n\s*\n/).slice(0, 9).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div><a className="steam-source" href={game.source} target="_blank" rel="noreferrer">Voir toutes les informations sur Steam <ArrowUpRight size={15}/></a></>}
+          <h2>À propos de {game.name}</h2>
+          {info ? <><div className="steam-description">{info.description.split(/\n\s*\n/).slice(0, 9).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div><a className="steam-source" href={game.source} target="_blank" rel="noreferrer">Voir toutes les informations sur Steam <ArrowUpRight size={15}/></a></> : <p>{game.description}</p>}
           {info?.requirements && <section className="steam-requirements"><h2>Configuration requise pour PC</h2><div><article><h3>Minimum</h3><p>{info.requirements.minimum || 'Non renseignée'}</p></article><article><h3>Recommandée</h3><p>{info.requirements.recommended || 'Non renseignée'}</p></article></div></section>}
           <div className="game-heading connector-heading"><Sparkles size={19}/><span>SIMLINK · CONNECTEUR</span></div>
           <h2>{game.ready ? 'Votre monde, accompagné par une IA.' : 'Un univers à connecter.'}</h2>
