@@ -13,8 +13,16 @@ Simlink est un projet de plateforme pour relier des jeux de simulation à des as
 | Stardew Valley | Concept au catalogue | Adaptateur à développer |
 | Kerbal Space Program | Concept au catalogue | Adaptateur à développer |
 | Factorio | Concept au catalogue | Adaptateur à développer |
+| Satisfactory | Concept au catalogue | Adaptateur à développer |
+| Transport Fever 2 | Concept au catalogue | Adaptateur à développer |
+| Planet Zoo | Concept au catalogue | Adaptateur à développer |
+| Subnautica | Concept au catalogue | Adaptateur à développer |
+| RimWorld | Concept au catalogue | Adaptateur à développer |
+| Oxygen Not Included | Concept au catalogue | Adaptateur à développer |
+| No Man’s Sky | Concept au catalogue | Adaptateur à développer |
+| Dyson Sphere Program | Concept au catalogue | Adaptateur à développer |
 
-Les nombres d’outils affichés pour les six concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod de ces jeux n’est actuellement fourni ou intégré par Simlink.
+Les nombres d’outils affichés pour les quatorze concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod de ces jeux n’est actuellement fourni ou intégré par Simlink.
 
 ## Ce qui fonctionne aujourd’hui
 
