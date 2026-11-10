@@ -150,7 +150,7 @@ export default function Home() {
             {grid.map(g => (
               <article key={g.id} className="card">
                 <Link className="cover" href={'/jeux/' + g.id} aria-label={'Ouvrir la page de ' + g.name}>
-                  <img src={g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
+                  <img src={'cover' in g && typeof g.cover === 'string' ? g.cover : g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
                 </Link>
                 <div className="card-title">
                   <h3><Link href={'/jeux/' + g.id}>{g.name}</Link></h3>
