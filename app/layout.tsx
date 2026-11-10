@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./launcher.css";
 
 export const metadata: Metadata = {
   title: "Simlink — Vos simulations, augmentées par l’IA",

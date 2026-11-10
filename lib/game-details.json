@@ -1,0 +1,711 @@
+{
+  "cities": {
+    "steamAppId": 949230,
+    "shortDescription": "Bâtissez une ville et transformez-la en une métropole prospère grâce à un jeu de construction urbaine sans précédent. Utilisez votre créativité pour bâtir un monde sans limites et résoudre des problèmes dans une simulation profonde avec une économie vivante.",
+    "description": "Si vous pouvez le rêver, vous pouvez le construire.\nBâtissez une ville à partir de zéro et transformez-la en la métropole prospère qui n'existe que dans votre imagination. Vous n'avez jamais connu de construction de cette envergure. Avec une simulation profonde et une économie vivante, Cities: Skylines II vous permet de construire un monde sans limites. \n\nÉtablissez d'abord les fondations de votre ville. Créez les routes, les infrastructures et les systèmes qui rendent la vie possible au quotidien. C'est à vous de décider... de tout. \n\nLa façon dont votre ville se développe est également de votre ressort, mais planifiez stratégiquement. Chaque décision a son impact. Est-il possible de stimuler les industries locales tout en utilisant le commerce pour renforcer l'économie ? Que ferez-vous pour permettre aux quartiers résidentiels de prospérer sans compromettre la vitalité du centre-ville ? Comment allez-vous répondre aux besoins et aux souhaits des citoyens tout en équilibrant le budget de la ville ? \n\nVotre ville ne connaît pas de répit. Comme tout univers vivant, elle évolue au fil du temps. Certains changements seront lents et progressifs, tandis que d'autres seront soudains et inattendus. Et tandis que les saisons passent et que la nuit succède au jour, préparez-vous à agir quand la vie ne se déroulera pas comme prévu. \n \nCities: Skylines II, le jeu de construction urbaine le plus réaliste et le plus détaillé jamais conçu, pousse votre créativité et votre capacité à résoudre des problèmes à un autre niveau. Grâce à des graphismes en haute résolution d'une grande beauté, le jeu vous donne l'inspiration pour construire la ville de vos rêves. \n\nUne simulation profonde.\nGrâce à l'IA et à une économie complexe, vos choix influent sur le paysage urbain tandis que vous élaborez des stratégies, résolvez des problèmes et relevez des défis.\"\n\nUne échelle épique, des possibilités infinies. \nCities: Skylines II vous permet de créer sans compromis. Construisez en hauteur et étendez votre ville sur la carte. Pourquoi pas ? C'est VOTRE ville.\"\n\nDes villes vivantes.\nVos décisions façonnent la vie de chaque citoyen, à travers les événements font d'eux ce qu'ils sont. De l'amour au deuil en passant par la richesse, suivez les aléas de leur vie.\"\n\nUn monde dynamique.\nChoisissez une carte pour définir le climat, les forces naturelles que vous affronterez pour développer votre ville dans la pollution croissante, la météo changeante, les saisons.",
+    "developers": [
+      "Iceflake Studios",
+      "Colossal Order"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ],
+    "releaseDate": "24 oct. 2023",
+    "comingSoon": false,
+    "platforms": [
+      "windows"
+    ],
+    "genres": [
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "Steam Cloud",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Français, Italien, Allemand, Japonais, Coréen, Polonais, Russe, Chinois simplifié, Portugais du Brésil, Chinois traditionnel, Espagnol - Espagne",
+    "website": "",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/fcc6a62a3b53c6f76ae1a7ce0cc5a4b8a0e1f022/ss_fcc6a62a3b53c6f76ae1a7ce0cc5a4b8a0e1f022.1920x1080.jpg?t=1793116151",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/ee0b920f27abfa62682bbb5c70862a5e18804fe2/ss_ee0b920f27abfa62682bbb5c70862a5e18804fe2.1920x1080.jpg?t=1793116151",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/c2092a2047a684f24faaaa47e58dc1dc1d3a57e6/ss_c2092a2047a684f24faaaa47e58dc1dc1d3a57e6.1920x1080.jpg?t=1793116151",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/c5bc1c21dfa34627c31ea78a61fa906df2f62ae1/ss_c5bc1c21dfa34627c31ea78a61fa906df2f62ae1.1920x1080.jpg?t=1793116151",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/59be27be2d94f0078b3e5e234011894ecee21357/ss_59be27be2d94f0078b3e5e234011894ecee21357.1920x1080.jpg?t=1793116151",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/949230/35e2b1b829741050585bc89cf60874f7eedaba22/ss_35e2b1b829741050585bc89cf60874f7eedaba22.1920x1080.jpg?t=1793116151"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows® 10 Home 64 Bit\n\nProcesseur : Intel® Core™ i7-6700K | AMD® Ryzen™ 5 2600X\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Nvidia® GeForce™ GTX 970 (4 GB) | AMD® Radeon™ RX 480 (8 GB)\n\nEspace disque : 60 GB d'espace disque disponible",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows® 10 Home 64 Bit | Windows® 11\n\nProcesseur : Intel® Core™ i5-12600K | AMD® Ryzen™ 7 5800X\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : Nvidia® GeForce™ RTX 3080 (10 GB) | AMD® Radeon™ RX 6800 XT (16 GB)\n\nEspace disque : 60 GB d'espace disque disponible"
+    }
+  },
+  "flight": {
+    "steamAppId": 1250410,
+    "shortDescription": "Merci à tous nos fans, les vétérans et les nouveaux ! L'édition Game of the Year (GOTY) de Microsoft Flight Simulator vous offre 5 nouveaux avions, 8 nouveaux aéroports conçus à la main, 6 nouveaux vols de découverte, de nouveaux didacticiels et des mises à jour du système de météo.",
+    "description": "Des avions légers et gros porteurs aux planeurs et hélicoptères, volez à bord d'un avion hautement détaillé et précis avec l'édition 40e anniversaire de Microsoft Flight Simulator. Le monde est à portée de main.\n\r\n \n\r\nL'édition 40e anniversaire de Microsoft Flight Simulator comprend 37 avions, planeurs et hélicoptères avec des modèles de vol uniques, 25 aéroports reproduits à la main, 4 aéroports commerciaux classiques, 14 héliports et 15 aérodromes pour planeurs.\n\r\n \n\r\nExplorez votre monde\n\r\n•  Des paysages saisissants et détaillés : plongez dans le vaste et sublime monde qu'est notre planète avec plus de 1,5 milliard de bâtiments, 2 000 milliards d'arbres, de montagnes, de routes, de fleuves et plus encore.\n\r\n•  Un monde vivant : si la Terre est pleine de vie et en constant changement, l'univers de Microsoft Flight Simulator l'est tout autant, avec du trafic et une météo en temps réel, ainsi que la présence d'animaux. \n\r\n \n\r\nMéritez vos ailes\n\r\n•  Avion : perfectionnez vos compétences de pilote aux commandes d'une large gamme d'avions, des avions légers aux jets commerciaux, bénéficiant de modèles de vol exhaustifs. Chaque avion est doté d'un cockpit détaillé et précis avec des instruments réalistes.\n\r\n•  Un système de check-list : des pilotes expérimentés aux débutants, évaluez votre niveau, qu'il soit manuel, assisté ou entre les deux, grâce à une check-list et un guide d'instruments sélectionnés et interactifs.\n\r\n \n\r\nMettez vos compétences à l'épreuve\n\r\n•  Une météo en direct : le moteur météorologique permet aux utilisateurs d'activer le mode météo en direct pour faire l'expérience de la météo en direct, avec notamment la vitesse et le sens du vent, la température, l'humidité, la pluie et plus encore.\n\r\n•  Un moteur jour/nuit : envolez-vous à toute heure et à toute période de l'année avec les règles de vol à vue (VFR) et la navigation de nuit.\n\r\n•  Une modélisation aérodynamique : un moteur physique de pointe offrant plus de 1 000 surfaces de contrôle par avion pour une expérience vraiment réaliste.\n\r\n \n\r\nMicrosoft Flight Simulator répond aux attentes des aviateurs du monde entier depuis 40 ans. Célébrez cette franchise maintes fois récompensée en plongeant dans l' édition 40e anniversaire, qui regorge de nouvelles fonctionnalités, de nouveaux avions ainsi que de contenus couvrant toute l'histoire de l'aviation.\n\r\n \n\r\nLa mise à jour Édition 40e anniversaire inclut :\n\r\n•  1 avion de ligne Airbus A310 réaliste\n\r\n•  2 hélicoptères et 14 héliports\n\r\n•  2 planeurs et 15 aérodromes pour planeurs\n\r\n•  7 avions historiques célèbres, dont le Hughes H-4 Hercules (surnommé Spruce Goose, « l'oie en épicéa »)\n\r\n•  4 aéroports commerciaux classiques\n\r\n•  24 missions classiques du passé de la franchise\n\r\n\n\r\nL' édition Deluxe comprend tous les éléments de l'édition Standard, plus 5 avions supplémentaires très réalistes aux modèles de vol uniques et 5 aéroports internationaux reproduits à la main.\n\r\n \n\r\nAvion supplémentaire Deluxe\n\r\n• DA40-TDI de Diamond Aircraft\n\r\n• DV20 de Diamond Aircraft\n\r\n• Beechcraft Baron G58 de Textron Aviation\n\r\n• Cessna 152 Aerobat de Textron Aviation\n\r\n• Cessna 172 Skyhawk de Textron Aviation\n\r\n \n\r\nAéroports Deluxe supplémentaires reproduits à la main\n\r\n• Aéroport d'Amsterdam-Schiphol (Pays-Bas)\n\r\n• Aéroport international du Caire (Égypte)\n\r\n• Aéroport international du Cap (Afrique du Sud)\n\r\n• Aéroport international O'Hare (États-Unis)\n\r\n• Aéroport Adolfo Suárez Madrid-Barajas (Espagne)\n\r\n\n\r\nL' édition Premium Deluxe comprend tous les éléments de l'édition Deluxe, plus 5 avions supplémentaires très réalistes aux modèles de vol uniques et 5 aéroports internationaux reproduits à la main.\n\r\n \n\r\nAvion supplémentaire Premium Deluxe\n\r\n• 787-10 Dreamliner de Boeing\n\r\n• SR22 de Cirrus Aircraft\n\r\n• Virus SW 121 de Pipistrel\n\r\n• Cessna Citation Longitude de Textron Aviation\n\r\n• Shock Ultra de Zlin Aviation\n\r\n \n\r\nAéroports supplémentaires Premium Deluxe\n\r\n• Aéroport international de Denver (États-Unis)\n\r\n• Aéroport international de Dubaï (Émirats arabes unis)\n\r\n• Aéroport de Francfort (Allemagne)\n\r\n• Aéroport de Londres-Heathrow (Royaume-Uni)\n\r\n• Aéroport international de San Francisco (États-Unis)",
+    "developers": [
+      "Asobo Studio"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ],
+    "releaseDate": "25 aout 2026",
+    "comingSoon": false,
+    "platforms": [
+      "windows"
+    ],
+    "genres": [
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "VR prise en charge",
+      "Achats en jeu",
+      "HDR disponible",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français*, Italien, Allemand*, Espagnol - Espagne, Polonais, Portugais du Brésil*, Russe, Néerlandais, Finnois, Japonais, Norvégien, Suédois\n*Langues avec support audio complet",
+    "website": "https://www.flightsimulator.com",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_d31fefd20eda54107d0414c779d0058c8b030233.1920x1080.jpg?t=1787671433",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_7bef6695583570c8714dab5acda6f08128e02f22.1920x1080.jpg?t=1787671433",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_28e2168df0f5a96a0f7f90e04d6a2059fa09d32c.1920x1080.jpg?t=1787671433",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_56be1573715370c1f3d4abfef38e2fa5cc9cfc08.1920x1080.jpg?t=1787671433",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_8f9298573c188569875bfd96361e9d977d6dfe9a.1920x1080.jpg?t=1787671433",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/ss_abe01d181b76e98b1a1d0d837a0a69eb62f78cb0.1920x1080.jpg?t=1787671433"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10\n\nProcesseur : Intel i5-4460 | AMD Ryzen 3 1200\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : NVIDIA GTX 770 | AMD Radeon RX 570\n\nDirectX : Version 11\n\nEspace disque : 150 GB d'espace disque disponible\n\nPrise en charge VR: SteamVR, Oculus PC, or OpenXR. Keyboard and mouse required",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10\n\nProcesseur : Intel i5-8400 | AMD Ryzen 5 1500X\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : NVIDIA GTX 970 | AMD Radeon RX 590\n\nDirectX : Version 11\n\nEspace disque : 150 GB d'espace disque disponible"
+    }
+  },
+  "truck": {
+    "steamAppId": 227300,
+    "shortDescription": "Voyagez à travers l'Europe en tant que roi de la route, un camionneur qui livre d'importantes marchandises sur des distances impressionnantes ! Avec des dizaines de villes à explorer, votre endurance, vos compétences et votre vitesse seront poussées à leurs limites.",
+    "description": "Voyagez à travers l'Europe en tant que roi de la route, un chauffeur routier qui livre d'importantes cargaisons vers des destinations très lointaines ! Avec des douzaines de villes à explorer du Royaume-Uni, de Belgique, d'Allemagne, d'Italie, des Pays-Bas, de Pologne et de bien d'autres pays, votre endurance, vos talents et votre rapidité seront poussés dans leur retranchements. Si vous avez les capacités pour être un pilote de poids-lourd d'élite, trouvez un volant et prouvez-le !\nCaractéristiques :\nTransportez un large choix de cargaisons vers plus de 60 villes européennes.\n\nLancez votre propre entreprise qui s'étend même lorsque vous êtes sur les routes à effectuer des livraisons.\n\nConstruisez votre propre flotte de camions, achetez des garages, engagez des chauffeurs, gérez votre entreprise pour maximiser vos profits.\n\nDe nombreux choix pour personnaliser les camions, des changements esthétiques aux améliorations des performances.\n\nCustomisez votre véhicule avec des lumières, des gyrophares, des klaxons, des sorties d'échappement optionnels et bien plus encore.\n\nDes milliers de kilomètres du véritable réseau routier européen et des centaines de panoramas et lieux reconnaissables.",
+    "developers": [
+      "SCS Software"
+    ],
+    "publishers": [
+      "SCS Software"
+    ],
+    "releaseDate": "12 oct. 2012",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Indépendant",
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "Coopération",
+      "Coopération en ligne",
+      "Succès Steam",
+      "Cartes à échanger Steam",
+      "Workshop Steam",
+      "Caméra et confort de vue",
+      "Contrôle du volume différencié",
+      "Difficulté ajustable",
+      "Option clavier uniquement",
+      "Jouable sans saisie en temps imparti",
+      "Sauvegarde à tout moment",
+      "Prise en charge de l'API Steam Input",
+      "Son stéréo",
+      "Son multicanal",
+      "Compat. contrôleurs partielle",
+      "Steam Cloud",
+      "Éditeur de niveau inclus",
+      "Remote Play sur téléphone",
+      "Remote Play sur tablette",
+      "Remote Play Together",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Allemand, Français, Italien, Coréen, Espagnol - Espagne, Chinois simplifié, Russe, Japonais, Portugais du Portugal, Polonais, Danois, Néerlandais, Finnois, Norvégien, Suédois, Hongrois, Tchèque, Roumain, Turc, Portugais du Brésil, Bulgare, Grec, Ukrainien, Chinois traditionnel, Catalan, Lituanien, Serbe, Slovaque, Slovène",
+    "website": "https://eurotrucksimulator2.com/",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9/ss_e040f74641ac21f15e3ec7c2415fc8b4de0b6bf9.1920x1080.jpg?t=1793285269",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/edbff61a062a49d1d97269e53b8afbffde05bb24/ss_edbff61a062a49d1d97269e53b8afbffde05bb24.1920x1080.jpg?t=1793285269",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/c610d985eb21cc22c26507b53cd843cfa0b3a00d/ss_c610d985eb21cc22c26507b53cd843cfa0b3a00d.1920x1080.jpg?t=1793285269",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/a944c7f801629bfa0cfb91fa7b23b4ff95e11753/ss_a944c7f801629bfa0cfb91fa7b23b4ff95e11753.1920x1080.jpg?t=1793285269",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/06aa11ece5d3303cfcfeafb3c81734258a7dd614/ss_06aa11ece5d3303cfcfeafb3c81734258a7dd614.1920x1080.jpg?t=1793285269",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/5dff1bca6580b5df288a4ad061e4f92f62f6a073/ss_5dff1bca6580b5df288a4ad061e4f92f62f6a073.1920x1080.jpg?t=1793285269"
+    ],
+    "requirements": {
+      "minimum": "Minimum:\n\nOS: Windows 10 64-bit\n\nProcessor: Intel Core i5-6400 or AMD Ryzen 3 1200 or similar\n\nMemory: 8 GB RAM\n\nGraphics: NVIDIA GeForce GTX 660 or AMD Radeon RX 460 or Intel HD 630 (2GB VRAM)\n\nHard Drive: 25 GB available space (Euro Truck Simulator 2 base game)",
+      "recommended": "Recommended:\n\nOS: Windows 10 64-bit\n\nProcessor: Intel Core i5-9600 or AMD Ryzen 5 3600 or similar\n\nMemory: 12 GB RAM\n\nGraphics: NVIDIA GeForce GTX 1660 or AMD Radeon RX 590 (2GB VRAM)\n\nHard Drive: 25 GB available space (Euro Truck Simulator 2 base game)"
+    }
+  },
+  "stardew": {
+    "steamAppId": 413150,
+    "shortDescription": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
+    "description": "Stardew Valley is an open-ended country-life RPG! \n\n \n\nYou've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home? It won't be easy. Ever since Joja Corporation came to town, the old ways of life have all but disappeared. The community center, once the town's most vibrant hub of activity, now lies in shambles. But the valley seems full of opportunity. With a little dedication, you might just be the one to restore Stardew Valley to greatness!\n\nFeatures \n\nTurn your overgrown field into a lively farm! Raise animals, grow crops, start an orchard, craft useful machines, and more! You'll have plenty of space to create the farm of your dreams. \n\n8 Player Farming! Invite 1-7 players to join you in the valley online! Players can work together to build a thriving farm, share resources, and improve the local community. As more hands are better than one, players have the option to scale profit margin on produce sold for a more challenging experience.\n\nImprove your skills over time. As you make your way from a struggling greenhorn to a master farmer, you'll level up in 5 different areas: farming, mining, combat, fishing, and foraging. As you progress, you'll learn new cooking and crafting recipes, unlock new areas to explore, and customize your skills by choosing from a variety of professions. \n\nBecome part of the local community. With over 30 unique characters living in Stardew Valley, you won't have a problem finding new friends! Each person has their own daily schedule, birthday, unique mini-cutscenes, and new things to say throughout the week and year. As you make friends with them, they will open up to you, ask you for help with their personal troubles, or tell you their secrets! Take part in seasonal festivals such as the luau, haunted maze, and feast of the winter star. \n\nExplore a vast, mysterious cave. As you travel deeper underground, you'll encounter new and dangerous monsters, powerful weapons, new environments, valuable gemstones, raw materials for crafting and upgrading tools, and mysteries to be uncovered. \n\nBreathe new life into the valley. Since JojaMart opened, the old way of life in Stardew Valley has changed. Much of the town's infrastructure has fallen into disrepair. Help restore Stardew Valley to it's former glory by repairing the old community center, or take the alternate route and join forces with Joja Corporation.\n\nCourt and marry a partner to share your life on the farm with. There are 12 available bachelors and bachelorettes to woo, each with unique character progression cutscenes. Once married, your partner will live on the farm with you. Who knows, maybe you'll have kids and start a family?\n\nSpend a relaxing afternoon at one of the local fishing spots. The waters are teeming with seasonal varieties of delicious fish. Craft bait, bobbers, and crab pots to help you in your journey toward catching every fish and becoming a local legend! \n\nDonate artifacts and minerals to the local museum. \n\nCook delicious meals and craft useful items to help you out. With over 100 cooking and crafting recipes, you'll have a wide variety of items to create. Some dishes you cook will even give you temporary boosts to skills, running speed, or combat prowess. Craft useful objects like scarecrows, oil makers, furnaces, or even the rare and expensive crystalarium. \n\nCustomize the appearance of your character and house. With hundreds of decorative items to choose from, you'll have no trouble creating the home of your dreams!\n\nXbox controller support (with rumble)! (Keyboard still required for text input) \n\nOver two hours of original music.",
+    "developers": [
+      "ConcernedApe"
+    ],
+    "publishers": [
+      "ConcernedApe"
+    ],
+    "releaseDate": "26 févr. 2016",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Indépendant",
+      "RPG",
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "Coopération",
+      "Coopération en ligne",
+      "Coop en LAN",
+      "Coop locale et écran partagé",
+      "Écran partagé",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "Cartes à échanger Steam",
+      "Steam Cloud",
+      "Remote Play sur téléphone",
+      "Remote Play sur tablette",
+      "Remote Play Together",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Allemand, Espagnol - Espagne, Japonais, Portugais du Brésil, Russe, Chinois simplifié, Français, Italien, Hongrois, Coréen, Turc",
+    "website": "http://www.stardewvalley.net",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.1920x1080.jpg?t=1786554168",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_9ac899fe2cda15d48b0549bba77ef8c4a090a71c.1920x1080.jpg?t=1786554168",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_4fa0866709ede3753fdf2745349b528d5e8c4054.1920x1080.jpg?t=1786554168",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_d836f0a5b0447fb6a2bdb0a6ac5f954949d3c41e.1920x1080.jpg?t=1786554168",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_10628b4a811c0a925a1433d4323f78c7017dbbe4.1920x1080.jpg?t=1786554168",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_6422d297347258086b389e3d5d9c0e0c698312e4.1920x1080.jpg?t=1786554168"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation  *: Windows Vista or greater\n\nProcesseur : 2 Ghz\n\nMémoire vive : 2 GB de mémoire\n\nGraphiques : 256 mb video memory, shader model 3.0+\n\nDirectX : Version 10\n\nEspace disque : 500 MB d'espace disque disponible",
+      "recommended": ""
+    }
+  },
+  "kerbal": {
+    "steamAppId": 220200,
+    "shortDescription": "Dans Kerbal Space Program, vous êtes en charge du programme spatial de la race extra-terrestre des Kerbals. Vous avez accès à toute une batterie de pièces pour assembler un vaisseau spatial fonctionnel qui vole (ou pas) sur une base d'aérodynamique et de physique orbitale réelles.",
+    "description": "Dans Kerbal Space Program, vous êtes en charge du programme spatial de la race extra-terrestre des Kerbals. Vous avez accès à toute une batterie de pièces pour assembler un vaisseau spatial fonctionnel qui vole (ou pas) sur une base d'aérodynamique et de physique orbitale réelles. Lancez votre équipage de Kerbals en orbite ou dans l'espace (en essayant de les garder en vie) pour explorer les lunes et planètes du système solaire de Kerbol et construire des bases et des stations spatiales afin d'étendre la portée de vos expéditions.\n\nKerbal Space Program offre trois modes de jeu. En mode Science, effectuez des expériences spatiales pour débloquer de nouvelles technologies et faire progresser le savoir de la Kerbalité. En mode Carrière, superviser tous les aspects d'un programme spatial, y compris la construction, la stratégie, le financement, les améliorations et bien plus. En Bac à sable, vous pouvez librement construire tout vaisseau spatial qui vous passe par la tête, avec toutes les pièces et la technologie disponibles en jeu.\nFonctionnalités clés\n\n Construisez des vaisseaux spatiaux, des fusées et des véhicules à partir de toute combinaison de pièces imaginable. Chacune d'entre elles a sa propre fonction, qui affectera le comportement de votre vaisseau.\n\n Contrôlez pleinement le paramétrage de votre vaisseau afin d'effectuer des manœuvres de vol complexes. \n\n Gérez les membres de votre équipage de Kerbals, qu'il s'agisse de leur recrutement, de leur entraînement ou de les envoyer dans l'espace pour qu'ils deviennent des héros. \n\n Découvrez tout un système solaire avec des lunes et planètes uniques, et explorez les terrains détaillés à grande échelle. \n\n Envoyez votre équipage de Kerbals hors de leurs vaisseaux pour des activités “extra-véhiculaires”.\n\n Amarrez des vaisseaux spatiaux ensemble pour construire des stations spatiales, des vaisseaux géants et des bases de surface sur les nouvelles planètes. \n\n Utilisez des satellites pour scanner le terrain et trouver des biomes et autres anomalies.\n\n Établissez des réseaux de communication entre votre vaisseau et le Centre Spatial Kerbal.\n\n Recherchez et développez de nouvelles technologies pour extraire des informations utiles et des ressources dans tout le système solaire, et bien plus !\nEssayez les différents mods créés par la communauté Kerbal Space Program !",
+    "developers": [
+      "Squad"
+    ],
+    "publishers": [
+      "Private Division"
+    ],
+    "releaseDate": "27 avr. 2015",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Indépendant",
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Cartes à échanger Steam",
+      "Workshop Steam",
+      "Compat. contrôleurs partielle",
+      "Steam Cloud",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Espagnol - Espagne, Chinois simplifié, Japonais, Russe, Français, Italien, Allemand, Portugais du Brésil",
+    "website": "https://kerbalspaceprogram.com/",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_44f586b0c58ed455c309efd87ce15f46e072242b.1920x1080.jpg?t=1738037585",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_d393792997ca01960a6843a5f6eb381895866662.1920x1080.jpg?t=1738037585",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_25cce0f89404bb3ddc4028644a040784082b0763.1920x1080.jpg?t=1738037585",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_dcfe84a90aba509e459d1e7d119aa7d365faf34a.1920x1080.jpg?t=1738037585",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_395fa5eeac33f83a3f80cfabfe221899d41e21d0.1920x1080.jpg?t=1738037585",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/ss_04fade61dd5ebce0f8cec9efe67e6e9d23d3b9a7.1920x1080.jpg?t=1738037585"
+    ],
+    "requirements": {
+      "minimum": "Minimum :\n\nSystème d'exploitation : Windows XP\n\nProcesseur : Core 2 Duo\n\nMémoire vive : 2 Go de RAM\n\nCarte graphique : Carte avec support SM3 et comportant 512 Mo de mémoire vidéo\n\nDisque dur : 1 Go d'espace disque disponible",
+      "recommended": "Recommandée :\n\nSystème d'exploitation : Windows 7\n\nProcesseur : Core i3\n\nMémoire vive : 4 Go de RAM\n\nCarte graphique : Carte avec support SM4 et comportant 1 Go de mémoire vidéo\n\nDisque dur : 2 Go d'espace disque disponible"
+    }
+  },
+  "factorio": {
+    "steamAppId": 427520,
+    "shortDescription": "Factorio a pour but la création d'une usine complètement automatisée, produisant des éléments de plus en plus complexes, dans un monde en 2D. Utiliser votre imagination pour concevoir votre usine, combiner de simples éléments en ingénieuses structures, tout en vous protégeant des aliens !",
+    "description": "Factorio est un jeu dans lequel vous construisez et maintenez des chaines de production. \n\nVous minerez des ressources, élaborerez des technologies, mettrez en place des infrastructures, automatiserez votre production et combattrez des ennemis.\n\nEn premier lieu, vous devrez abattre des arbres, collecter différentes ressources, construire des bras mécaniques et des convoyeurs à la main. Mais en peu de temps, vous deviendrez une grande puissance industrielle, avec d'immenses fermes solaires, des raffineries ainsi qu'une flotte de robots de construction et d'approvisionnement, pour satisfaire vos besoins en ressources. \n\nCependant, l'exploitation massive des ressources de la planète ne sera pas pour plaire aux autochtones. Vous devrez donc être prêts à défendre votre empire mécanisé. \n\n Collaborez avec d'autres joueurs grâce au mode Multijoueur, répartissez vous les tâches et créer d'immenses usines avec vos amis. \n\nVous pourrez ajouter des mods afin d'améliorer encore votre expérience de jeu. Factorio propose de base un Support des mods afin que la communauté puisse proposer du contenu intéressant et innovant, qu'il s'agisse d'une petite aide ou d'une refonte totale du jeu. \nEn plus du mode libre qui constitue le cœur du jeu, un pack de scénarios disponible sous la forme d'un DLC gratuit offre toute une panoplie de défis intéressants. \n\nSi vous ne trouvez pas de carte ou de scénarios qui vous plaisent, vous pouvez créer votre propre carte via L'éditeur de carte. Placez les entités, les ennemis et aménagez le terrain comme bon vous semble. Vous pourrez même y ajouter un script afin de créer un scénarios.\n\n Avertissement sur les réductions : nous n'avons pas prévu de réduire le prix du jeu dans un futur proche, ni de participer aux soldes.\n\n \nCe que disent les gens à propos de Factorio\n \nNo other game in the history of gaming handles the logistics side of management simulator so perfectly. - Reddit\n\n \nI see conveyor belts when I close my eyes. I may have been binging Factorio lately. - Notch, Mojang\n\n \nFactorio is a super duper awesome game where we use conveyor belts to shoot aliens. - Zisteau, Youtube",
+    "developers": [
+      "Wube Software LTD."
+    ],
+    "publishers": [
+      "Wube Software LTD."
+    ],
+    "releaseDate": "14 aout 2020",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Occasionnel",
+      "Indépendant",
+      "Simulation",
+      "Stratégie"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "Coopération",
+      "Coopération en ligne",
+      "Coop en LAN",
+      "Multijoueur multiplateforme",
+      "Succès Steam",
+      "Taille de texte réglable",
+      "Caméra et confort de vue",
+      "Contrôle du volume différencié",
+      "Difficulté ajustable",
+      "Jouable sans saisie en temps imparti",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DualSense",
+      "Prise en charge des manettes DualSense",
+      "Sauvegarde à tout moment",
+      "Options de sous-titres",
+      "Compat. contrôleurs partielle",
+      "Steam Cloud",
+      "Éditeur de niveau inclus",
+      "Remote Play sur tablette",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Français, Italien, Allemand, Espagnol - Espagne, Hongrois, Néerlandais, Norvégien, Polonais, Portugais du Portugal, Portugais du Brésil, Roumain, Finnois, Suédois, Tchèque, Russe, Ukrainien, Japonais, Chinois simplifié, Chinois traditionnel, Coréen, Turc, Grec, Espagnol - Amérique latine, Thaï, Vietnamien, Biélorusse, Catalan, Kazakh, Géorgien",
+    "website": "https://www.factorio.com",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_36e4d8e5540805f5ed492d24d784ed9ba661752b.1920x1080.jpg?t=1792752343",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_171f398a8e347fad650a9c1b6c3b77c612781510.1920x1080.jpg?t=1792752343",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_0bf814493f247b6baa093511b46c352cf9e98435.1920x1080.jpg?t=1792752343",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_2533e54b0bd90a29adbedb60108ed277536ad445.1920x1080.jpg?t=1792752343",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_192864c00fc38b5ef97b97ca7fa655a9aed7c0da.1920x1080.jpg?t=1792752343",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_e301bde0fc0e996ba93e92639cd49dd90ae47b36.1920x1080.jpg?t=1792752343"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation : Windows 11, 10\n\nProcesseur : Quad core 3Ghz+\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : DirectX 11 capable GPU with 1GB VRAM - GeForce GTX 750 Ti, Radeon R7 360 or Intel UHD Graphics 730\n\nDirectX : Version 11\n\nEspace disque : 5 GB d'espace disque disponible\n\nNotes supplémentaires : Normal sprite resolution, Low quality compression, 1080p resolution",
+      "recommended": "Recommandée :\n\nSystème d'exploitation : Windows 11, 10\n\nProcesseur : Quad core 4Ghz+ from 2020 or newer\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : DirectX 11 capable GPU with 4 GB VRAM - GeForce GTX 1050 Ti, Radeon RX 570, Intel Arc\n\nDirectX : Version 11\n\nEspace disque : 10 GB d'espace disque disponible\n\nNotes supplémentaires : High sprite resolution, High quality compression"
+    }
+  },
+  "satisfactory": {
+    "steamAppId": 526870,
+    "shortDescription": "Satisfactory est un jeu de construction d’usines en vue à la première personne dans un monde ouvert avec une touche d’exploration et de combats. Jouez seul ou entre amis, explorez une planète inconnue, construisez des usines à plusieurs niveaux et des tapis roulants à l’infini !",
+    "description": "Satisfactory est un jeu de construction d’usines en vue à la première personne dans un monde ouvert avec une touche d’exploration et de combats. Jouez seul ou entre amis, explorez une planète inconnue, construisez des usines à plusieurs niveaux et des tapis roulants à l’infini !\nConstruireDominez la nature en construisant d’énormes usines à travers le pays. Développez-les librement. La planète regorge de ressources naturelles précieuses qui n’attendent que vous. En tant qu’employé de la FICSIT, il est de votre devoir de garantir leur bonne utilisation.\nAutomatiserConstruisez vos usines à la perfection, ou mettez en place de complexes réseaux de tapis roulants pour satisfaire tous vos besoins. Automatisez les camions et les trains pour atteindre vos avant-postes éloignés et assurez-vous de bien manipuler les liquides en les transportant dans des tuyaux. Il s’agit de minimiser le travail manuel !\nExplorer et exploiterAventurez-vous dans des expéditions à la recherche de nouveaux matériaux et assurez-vous de tout utiliser à bon escient. La nature est à vous et vous offre toutes ses ressources ! Vous avez des véhicules, des jetpacks, des tapis de saut et plus encore à votre disposition pour faciliter vos explorations. Prenez soin de revêtir l’équipement de sécurité adéquat, au cas où vous rencontrez la faune locale.\nCARACTÉRISTIQUES• Monde ouvert : Explorez l’immense (30 km2) planète inconnue Massage 2(AB)b, sa faune et ses créatures uniques.\n• Coopération Construisez vous-même votre usine, ou à l’aide de vos amis.\n• Construction d’usines Vivez la fabrication d’une usine immense en vue à la première personne. Automatisez-la et optimisez-la jusqu’à la perfection pour votre satisfaction personnelle.\n• Personnalisation: Personnalisez votre propre usine à votre goût. Construisez à haute altitude ou sur les vastes plaines ; respectez le paysage ou bétonnez partout au nom de l’efficacité ; il n’y a presque aucune limite dans la construction de votre usine sur-mesure.\n• Véhicules: Parcourez le monde avec classe. Utilisez des tapis de saut, des chariots d’usine, des hypertubes, des camions ou des trains.",
+    "developers": [
+      "Coffee Stain Studios"
+    ],
+    "publishers": [
+      "Coffee Stain Publishing"
+    ],
+    "releaseDate": "10 sept. 2024",
+    "comingSoon": false,
+    "platforms": [
+      "windows"
+    ],
+    "genres": [
+      "Aventure",
+      "Indépendant",
+      "Simulation",
+      "Stratégie"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "Coopération",
+      "Coopération en ligne",
+      "Multijoueur multiplateforme",
+      "Succès Steam",
+      "Taille de texte réglable",
+      "Caméra et confort de vue",
+      "Alternatives de couleurs",
+      "Contrôle du volume différencié",
+      "Difficulté ajustable",
+      "Jouable sans saisie en temps imparti",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DualSense",
+      "Prise en charge des manettes DualSense",
+      "Sauvegarde à tout moment",
+      "Son stéréo",
+      "Son multicanal",
+      "Compat. contrôleurs partielle",
+      "Steam Cloud",
+      "Remote Play sur tablette",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français, Italien, Allemand, Espagnol - Espagne, Japonais, Coréen, Polonais, Portugais du Brésil, Russe, Chinois simplifié, Chinois traditionnel, Ukrainien\n*Langues avec support audio complet",
+    "website": "https://www.satisfactorygame.com/",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_9083ccf8fbb22c4068a6e233e3de343f815f9dc1.1920x1080.jpg?t=1791192059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_6f456011887f970dc230af5e1720065ca3430aae.1920x1080.jpg?t=1791192059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_b1104309f1c22c85de6ad6c401e6d889411c14d2.1920x1080.jpg?t=1791192059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_3f47e401fc3e09fd86500d2026da954de08a015b.1920x1080.jpg?t=1791192059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_077e7ea98621faeb5b4a73ea0aaa91f41c6f66c9.1920x1080.jpg?t=1791192059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_cff8791f06839134d09f4c865758193a7023b92f.1920x1080.jpg?t=1791192059"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10 or later (64-Bit)\n\nProcesseur : i5-3570 3.4 GHz 4 Core\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Nvidia GTX 1650/GTX 1050-ti, or AMD RX 470/RX 570, or equivalent performance & VRAM\n\nEspace disque : 20 GB d'espace disque disponible\n\nNotes supplémentaires : Internet connection required for multiplayer.",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 11 or later (64-Bit)\n\nProcesseur : Ryzen 5 5600X﻿ or ﻿i5-12400 ﻿or equivalent performance, 6 physical cores minimum\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : Nvidia RTX 2070﻿ or RX 5700, or equivalent performance & VRAM\n\nEspace disque : 20 GB d'espace disque disponible\n\nNotes supplémentaires : Internet connection required for multiplayer."
+    }
+  },
+  "transportfever": {
+    "steamAppId": 1066780,
+    "shortDescription": "La famille des classiques du jeu de simulation de transport s'agrandit avec Transport Fever 2. Découvrez un monde nouveau en parcourant des voies de transports terrestres, maritimes et aériennes. Que le progrès et la prospérité trouvent leur voie !",
+    "description": "La famille des classiques du jeu de simulation de transport s'agrandit avec Transport Fever 2. Découvrez un monde nouveau en parcourant des voies de transports terrestres, maritimes et aériennes. Que le progrès et la prospérité trouvent leur voie !\n\nFournissez l'infrastructure de transport dont le monde a besoin et faites fortune à l'aide de services de transport sur mesure. Regardez vos trains circuler sur les voies ferrées, vos bus et camions sillonner les routes dans un grondement de tonnerre, vos bateaux traverser les eaux à pleine puissance et vos avions planer élégamment dans les airs. Transportez les passagers sur leur trajet pour aller au travail ou bien pour aller s'amuser, et soyez la raison pour laquelle les villes se développent et prospèrent. Livrez des matières premières et des biens de consommation afin de faire tourner l'économie. Faites l'expérience des plus grands défis logistiques de 1850 à nos jours et bâtissez un empire du transport unique au monde !\n\nLe mode libre offre une infinité de possibilités de création, alors que le mode campagne vous permet de réécrire l'histoire des transports à travers trois continents. Transport Fever 2 présente un choix de plus de 200 véhicules d'Europe, d'Amérique et d'Asie, reproduits dans les moindres détails. Grâce à l'éditeur de carte en jeu, vous pourrez également recréer des paysages à partir de trois différentes zones climatiques. Enfin, le simulateur réaliste de transport et d'économie, agrémenté d'un support complet de création de modules, vous permettra enrichir votre expérience de jeu.\n\nOuvrez un monde de possibilités\nTout un monde de jeu attend vos chemins de fer, vos véhicules, vos avions et vos bateaux. Les outils de construction ferroviaire interactifs et intuitifs ainsi qu'un système de construction modulaire pour les gares facilitent la construction et l'expansion de votre empire du transport. Grâce à une large gamme d'options de configuration, chaque partie en mode libre offre un nouveau défi où le succès pourra être atteint au moyen de stratégies très différentes.\n\nÉcrivez l'histoire du transport\nVous serez mis au défi lors de trois campagnes historiques situées à différentes époques et sur trois continents distincts grâce à des objectifs très variés... Seuls les véritables magnats du transport réussiront à terminer toutes les missions ! Les voix off et les cinématiques enrichissent l'histoire et contribuent à offrir une expérience de jeu palpitante, et le mode libre vous offrira lui aussi plusieurs défis au travers de différents objectifs à déverrouiller.\n\nOptimisez l'infrastructure\nIl est essentiel d'adapter votre entreprise aux besoins de l'économie et des villes : les ponts, tunnels, l'aiguillage, la signalisation ferroviaire, les rues à sens unique, les feux de circulation et les voies de bus font partie d'un éventail de solutions à mettre en place afin d'optimiser l'infrastructure de transport. Même les gares et les aéroports peuvent être agrandis grâce aux modules qui permettent de répondre à plusieurs exigences. De plus, grâce à divers filtres de données, vous pourrez facilement visualiser les volumes de circulation et d'émission ainsi que les informations d'améliorations potentielles.\n\nLaissez libre cours à votre imagination\nVous pourrez créer vos propres paysages de voie ferrée avec l'éditeur de carte, qui fournit la possibilité de créer d'innombrables mondes différents. Le terrain du jeu peut être ajusté et peint, et grâce au support exhaustif de modules, de nouvelles créations sont développées en continu. Vous pourrez les trouver gratuitement sur le Steam Workshop et les intégrer facilement à votre jeu.\n\nCaractéristiques du jeu\nUn mode libre avec une multitude de configurations possibles\n\nTrois campagnes sur trois continents avec une jouabilité de plus de 20 heures\n\nDes éditeurs pour créer des cartes et modifier les parties sauvegardées\n\nTrois types de climats : tempéré, aride et tropical\n\nDes véhicules d'Europe, d'Amérique et d'Asie reproduits à l'identique\n\nUn total de plus de 200 véhicules : trains, bus, tramways, camions, avions et bateaux\n\nDes gares, stations de bus et camions, aéroports et ports modulables\n\nDes simulations de transport réalistes qui prennent en compte les rues à sens unique et les feux de circulation\n\nDes terrains réalistes à modifier et à peindre\n\nDes outils de construction intuitifs pour construire des chemins de fer et bien plus\n\nUn affichage des données importantes, comme la circulation et les émissions, dans des filtres séparés\n\nUne simulation d'économie et de ville dynamique\n\nPlus de dix chaînes d'économie comprenant des entreprises et des biens spécifiques\n\nDes villes avec un nombre infini de résidences, commerces et usines\n\nUn univers de jeu détaillé avec un éclairage fondé sur la physique\n\nDes animaux terrestres, oiseaux et poissons simulés individuellement\n\nPlus de 50 objectifs stimulants en mode libre\n\nUn support de modules via le Steam Workshop",
+    "developers": [
+      "Urban Games"
+    ],
+    "publishers": [
+      "Good Shepherd Entertainment"
+    ],
+    "releaseDate": "11 déc. 2019",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Occasionnel",
+      "Indépendant",
+      "Simulation",
+      "Stratégie"
+    ],
+    "features": [
+      "Solo",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "Workshop Steam",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DualSense",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français, Allemand*, Espagnol - Espagne, Japonais, Néerlandais, Polonais, Russe, Chinois traditionnel, Chinois simplifié, Italien, Coréen, Portugais du Brésil\n*Langues avec support audio complet",
+    "website": "http://www.transportfever2.com",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_a6bb849ecc478467f2db7cf635c298dbc4fc686e.1920x1080.jpg?t=1727104059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_df1b847fe1ad0282cc78caae5694cfa4d6581868.1920x1080.jpg?t=1727104059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_b9c0034f6aa0cd88d0e0d6d4279f45e4c08456a8.1920x1080.jpg?t=1727104059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_f8d29baccb70a9118a09897a0159dfcf864d6033.1920x1080.jpg?t=1727104059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_b1fd04a855f5cb2a35d7d816b54ea81635a9ee9f.1920x1080.jpg?t=1727104059",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1066780/ss_4d989afce867ca774adca249e783195109f62efc.1920x1080.jpg?t=1727104059"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows 7, 8 or 10 (64-bit)\n\nProcesseur : Intel i5-2300 or AMD FX-6300\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : NVIDIA GeForce GTX 560 or AMD Radeon HD 7850, 2 GB VRAM",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows 7, 8 or 10 (64-bit)\n\nProcesseur : Intel i7-4770k or AMD Ryzen 5 1600\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : NVIDIA GeForce GTX 1060 or AMD Radeon RX 580, 4 GB VRAM"
+    }
+  },
+  "planetzoo": {
+    "steamAppId": 703080,
+    "shortDescription": "Avec Planet Zoo, construisez un monde idéal pour nos amies les bêtes ! Les développeurs de Planet Coaster et de Zoo Tycoon vous proposent la simulation de zoo ultime. Bâtissez des habitats, gérez votre zoo et prenez soin des animaux qui exploreront l'univers que vous leur aurez créé.",
+    "description": "Avec Planet Zoo, construisez un monde idéal pour nos amis les bêtes ! Les développeurs de Planet Coaster et de Zoo Tycoon vous proposent la simulation de zoo ultime ! Bâtissez des habitats, gérez votre parc zoologique et prenez soin des animaux intelligents et sensibles qui exploreront l'univers que vous leur avez créé. La campagne vous emmènera aux quatre coins de la planète, tandis que le mode Bac à sable vous permettra de donner libre cours à votre imagination. Créez des habitats uniques et façonnez d'immenses paysages, prenez des décisions cruciales, faites des choix importants, et veillez au bien-être de vos animaux tout en construisant et en gérant les zoos les plus exceptionnels au monde.\n\nUNE SIMULATION SAUVAGE\n \nDécouvrez un monde peuplé d'animaux extraordinaires. Des lionceaux espiègles aux puissants éléphants, tous les résidents de Planet Zoo sont des animaux intelligents et sensibles, à l'apparence et à la personnalité uniques. Construisez des habitats détaillés pour reproduire l'environnement d'origine de vos animaux, apprenez à connaître chaque espèce afin qu'elle puisse s'épanouir et aidez vos animaux à se reproduire et à transmettre leur patrimoine génétique. \n\nUNE GESTION AVISÉE\nGérez un monde vivant extraordinaire, qui réagit à chacune de vos décisions. À vous de choisir si vous préférez gérer la situation dans son ensemble ou contrôler votre zoo dans les moindres détails. Émerveillez vos visiteurs avec des animaux emblématiques, développez votre zoo en effectuant des recherches et relâchez de nouvelles générations d'animaux dans la nature. Vos choix prennent vie dans un monde où le bien-être des animaux et leur protection sont votre priorité absolue.\n \n\nUNE CRÉATIVITÉ SANS LIMITES\n Les puissants outils de construction détaillés de Planet Zoo vous permettent de construire aisément un zoo unique, dans lequel toutes vos décisions ont un impact sur la vie des animaux et l'expérience de vos visiteurs. Laissez libre cours à votre imagination en façonnant lacs et rivières, collines et montagnes, routes et grottes, et construisez d'incroyables parcs proposant des thèmes uniques et des centaines d'éléments de construction. \n\nPARTAGE ET INSPIRATION\nRejoignez la communauté en ligne de Planet Zoo et partagez vos habitats, environnements et zoos les plus visionnaires sur le Steam Workshop. Vos propres créations pourraient bien être utilisées dans des zoos du monde entier ! Cette communauté vous permettra également de découvrir chaque jour des contenus inédits.",
+    "developers": [
+      "Frontier Developments"
+    ],
+    "publishers": [
+      "Frontier Developments"
+    ],
+    "releaseDate": "5 nov. 2019",
+    "comingSoon": false,
+    "platforms": [
+      "windows"
+    ],
+    "genres": [
+      "Occasionnel",
+      "Simulation",
+      "Stratégie"
+    ],
+    "features": [
+      "Solo",
+      "Succès Steam",
+      "Cartes à échanger Steam",
+      "Workshop Steam",
+      "Steam Cloud",
+      "HDR disponible",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français*, Allemand*, Espagnol - Espagne*, Japonais*, Coréen*, Portugais du Brésil*, Chinois simplifié*, Chinois traditionnel, Italien*, Tchèque, Danois, Néerlandais, Norvégien, Polonais, Russe*, Espagnol - Amérique latine*, Suédois\n*Langues avec support audio complet",
+    "website": "https://www.planetzoogame.com/",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_fac76f23b1b655dd0459db1a443bc8adb02e4279.1920x1080.jpg?t=1765896213",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_275f9a046ba89aa45944a940b4a5c1baaf50c81e.1920x1080.jpg?t=1765896213",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_6a247086e998d16983a109f2ab9567b16ddd6ec1.1920x1080.jpg?t=1765896213",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_37ad5481dcb9ba88f42ef718d0a98450a878ec34.1920x1080.jpg?t=1765896213",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_c57319ad1fcc446a6a241b279a8477f7b741cd76.1920x1080.jpg?t=1765896213",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/703080/ss_80cb8f59aed7f52334556b26632dad78b3f3cdba.1920x1080.jpg?t=1765896213"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows 7 (SP1+)/8.1/10 64bit\n\nProcesseur : Intel i5-2500 / AMD FX-6350\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : NVIDIA GeForce GTX 770 (2GB) / AMD Radeon R9 270X (2GB)\n\nEspace disque : 16 GB d'espace disque disponible\n\nNotes supplémentaires : Minimum specifications may change during development",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10 64bit\n\nProcesseur : Intel i7-4770k / AMD Ryzen 5 1600\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : NVIDIA GeForce GTX 1070 (8GB) or AMD Radeon RX 580 (8GB)\n\nEspace disque : 16 GB d'espace disque disponible"
+    }
+  },
+  "subnautica": {
+    "steamAppId": 264710,
+    "shortDescription": "Descendez dans les profondeurs d'un monde sous-marin étranger plein de merveilles et périls. Concevez des équipements, pilotez des sous-marins, terraformez un terrain voxel, et adaptez-vous à la vie sauvage afin d’explorer le monde, tout en essayant de survivre.",
+    "description": "Subnautica est un jeu de monde ouvert, d’exploration sous-marine et d’aventure, actuellement en construction à Unknown Worlds, le développeur indépendant derrière Natural Selection 2.\nPlongez dans un Vaste Monde Sous-Marin\n\nAprès un atterrissage catastrophique sur un monde extraterrestre océanique, la seule voie à prendre est vers le bas. Les océans de Subnautica vont de récifs de corail ensoleillés et peu profonds à des fosses abyssales dangereuses. Gérez votre niveau d'oxygène tout en explorant des forêts d’algue, des plateaux, des récifs, et des systèmes de grottes sinueux. L'eau est pleine de vie: une partie utile, mais une grande partie nocive.\nCollectionnez, Concevez et Survivez\n\nAprès un réveil dans votre vaisseau de secours, il s’agit de trouver de l’eau et de la nourriture, et de développer l’equipement dont vous avez besoin pour explorer, au plus vite possible. Collectez les ressources de l’océan autour de vous. Concevez des couteaux, de l’éclairage, du matériel de plongée, un équipement marin personnel. Descendez plus loin et plus profondément et trouvez des ressources plus rares, afin de concevoir des outils de plus en plus avançés.\nCausez une Perturbation dans la Chaine Alimentaire\n\nL’océan est plein de vie: Aidez-vous de l’écosystème. Attirez et distrayez une créature dangereuse avec un poisson frais, ou bien tout simplement, nagez aussi vite que vous le pouvez afin d’éviter les machoires des prédateurs.\nAyez Peur de la Nuit\n\nAu coucher du soleil, les prédateurs apparaissent. L’océan est impitoyable à ceux qui sont surpris par l’obscurité. Les endroits saufs durant le jour deviennent dangereux pendant la nuit, mais révèlent aussi une beauté que ceux qui évitent le noir ne verront jamais.\nFaçonnez le Monde\n\nLe fond marin dans Subnautica est présenté à l'aide d'un système de terrain voxel dynamique. Creusez des grottes afin de vous cacher, déposez votre butin, ou créez des raccourcis dans les systèmes de grottes. Tout impact de véhicules, ou même des créatures explosives, vont changer la forme du monde.\nDescendez dans l’Abîme\n\nLes systèmes de grottes débouchent en dessous du fond de la mer, dans des passages sombres et claustrophobes, ou des caves illuminées par faune et flore bioluminescente. Explorez le monde sous le fond de l’océan, mais n’oubliez pas votre niveau d’oxygène, et prenez soin d’éviter les dangers qui rôdent dans les ténèbres.",
+    "developers": [
+      "Unknown Worlds Entertainment"
+    ],
+    "publishers": [
+      "Unknown Worlds Entertainment"
+    ],
+    "releaseDate": "23 janv. 2018",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac"
+    ],
+    "genres": [
+      "Aventure",
+      "Indépendant"
+    ],
+    "features": [
+      "Solo",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "VR prise en charge",
+      "Cartes à échanger Steam",
+      "Prise en charge VR",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Steam Cloud",
+      "Remote Play sur télévision",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français, Allemand, Polonais, Russe, Chinois simplifié, Turc, Finnois, Italien, Tchèque, Hongrois, Espagnol - Espagne, Danois, Japonais, Coréen, Portugais du Brésil, Bulgare, Ukrainien, Néerlandais, Suédois, Vietnamien, Espagnol - Amérique latine, Chinois traditionnel, Portugais du Portugal, Letton, Lituanien, Slovaque\n*Langues avec support audio complet",
+    "website": "http://unknownworlds.com/subnautica",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_e182b6b20bb797500f9f63c561586d920d44e37c.1920x1080.jpg?t=1777456112",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_970a13f246e33e0df26d93baf9f8e975732adb4b.1920x1080.jpg?t=1777456112",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_5f2f2ea498cdc632cbffd6cf37c1a09670eb3272.1920x1080.jpg?t=1777456112",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_cebc378d2f7bc78978c21db4e3c5e12ccd067349.1920x1080.jpg?t=1777456112",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_0ace7f8b4350b8fbdd16345a76bc30545256e918.1920x1080.jpg?t=1777456112",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_f0eeabe108c2bc2b3e370b9828fb280035b50db2.1920x1080.jpg?t=1777456112"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows Vista SP2 ou plus récent 64-bit\n\nProcesseur : Intel Haswell 2 cores / 4 threads @ 2.5Ghz ou équivalent\n\nMémoire vive : 4 GB de mémoire\n\nGraphiques : Intel HD 4600 ou équivalent\n\nDirectX : Version 11\n\nEspace disque : 20 GB d'espace disque disponible\n\nPrise en charge VR: SteamVR. Keyboard or gamepad required",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows Vista SP2 or plus récent 64-bit\n\nProcesseur : Intel Haswell 4 cores / 4 threads @ 3.2Ghz ou équivalent\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Nvidia GTX 550 ti ou équivalent\n\nDirectX : Version 11\n\nEspace disque : 20 GB d'espace disque disponible"
+    }
+  },
+  "rimworld": {
+    "steamAppId": 294100,
+    "shortDescription": "Un simulateur de colonie de science-fiction piloté par un narrateur IA intelligent. Il génère des récits interactifs palpitants en simulant la psychologie, l’écologie, les combats, le climat, les biomes, la diplomatie, les relations, l’art, la médecine, le commerce, et bien plus encore.",
+    "description": "RimWorld est un simulateur de colonie science-fiction piloté par un narrateur IA intelligent. Inspiré par Dwarf Fortress, Firefly et Dune.\n\nVous commencez avec trois survivants d’un naufrage spatial sur une planète lointaine.\n\nGérez l’humeur, les besoins, les blessures, les maladies et les addictions de vos colons.\n\nConstruisez dans la forêt, le désert, la jungle, la toundra, et bien plus encore.\n\nObservez vos colons développer - et rompre - leur relations avec leur famille, leurs amants et leurs conjoints.\n\nRemplacez des membres et organes blessés par des prothèses, des implants bioniques ou des organes prélevés à d’autres personnes.\n\nCombattez des pirates, des tribus, des animaux enragés, des insectes géants et des machines meurtrières.\n\nFabriquez des structures, des armes et des vêtements à partir de métal, de bois, de pierre, de tissu et de matériaux futuristes.\n\nApprivoisez et entraînez des animaux de compagnie adorables, des animaux d’élevage productifs et des bêtes d’attaque mortelles.\n\nFaites du commerce avec des vaisseaux spatiaux et des primitives caravanes de passage.\n\nFormez vos propres caravanes pour accomplir des quêtes, commercer, attaquer d’autres factions ou déplacer toute votre colonie.\n\nCreusez dans la neige, affrontez des tempêtes et combattez des incendies.\n\nCapturez des réfugiés ou des prisonniers et ralliez-les à votre cause - ou vendez-les comme esclaves.\n\nDécouvrez un nouveau monde généré à chaque partie.\n\nExplorez des centaines de mods originaux et intéressants sur le Steam Workshop.\n\nApprenez à jouer facilement grâce à un tuteur IA subtil et intelligent.\nRimWorld est un générateur d’histoires. Il est conçu pour coécrire des récits tragiques, tordus et triomphants autour de pirates emprisonnés, de colons désespérés, de famine et de survie. Il fonctionne en contrôlant les événements « aléatoires » que le monde vous lance. Chaque orage, raid de pirates et marchand itinérant est une pierre ajoutée à l’édifice de votre histoire par le Narrateur IA. Il existe plusieurs narrateurs parmi lesquels choisir : Randy Random fait des choses imprévisibles, Cassandra Classic cherche à créer une tension croissante, et Phoebe Chillax préfère une approche plus détendue.\n\nVos personnages ne sont pas des colons professionnels - ce sont des survivants d’un vaisseau de transport civil détruit en orbite. Vous pourriez vous retrouver avec un noble, un comptable et une femme au foyer. Vous pourrez recruter de nouveaux colons en les capturant au combat et en les retournant à votre cause, en les achetant à des marchands d’esclaves, ou en accueillant des réfugiés. Votre colonie sera donc toujours un assemblage hétéroclite.\n\nLe passé de chaque colon influence sa façon de jouer. Un noble sera excellent dans les compétences sociales (recruter des prisonniers, négocier les prix), mais refusera le travail physique. Un paysan expérimenté saura cultiver la nourriture, mais sera incapable de faire de la recherche. Un scientifique introverti sera excellent en recherche, mais incapable d’effectuer des tâches sociales. Un assassin génétiquement modifié ne pourra rien faire d’autre que tuer - mais il le fera très bien.\n\nLes colons développent - et brisent - des relations. Chacun a une opinion des autres, et cela détermine s’ils deviendront amants, se marieront, tromperont leur partenaire ou se battront. Peut-être que vos deux meilleurs colons sont heureusement mariés - jusqu’à ce que l’un d’eux tombe amoureux du chirurgien séduisant qui lui a sauvé la vie après une blessure par balle.\n\nLe jeu génère une planète entière, du pôle jusqu’à l’équateur. Vous choisissez si vos capsules d’évasion atterrissent dans une toundra glaciale du nord, un désert aride, une forêt tempérée ou une jungle équatoriale luxuriante. Chaque région possède ses propres animaux, plantes, maladies, températures, précipitations, ressources minérales et reliefs. Les défis de survie dans une jungle étouffante infestée de maladies sont très différents de ceux d’un désert desséché ou d’une toundra gelée avec une saison de croissance d’à peine deux mois.\n\nVoyagez à travers la planète. Vous n’êtes pas coincé à un seul endroit. Vous pouvez former une caravane de personnes, d’animaux et de prisonniers. Sauvez d’anciens alliés kidnappés dans des avant-postes pirates, participez à des négociations de paix, commercez avec d’autres factions, attaquez des colonies ennemies et accomplissez d’autres quêtes. Vous pouvez même emballer toute votre colonie et vous installer ailleurs. Des capsules de transport propulsées par fusée permettent de voyager plus rapidement.\n\nVous pouvez apprivoiser et entraîner des animaux. L’amour inconditionnel des animaux de compagnie réconforte vos colons devenus tristes. Ceux d’élevage peuvent travailler dans les champs et produire du lait et de la laine. Les bêtes d’attaque peuvent être lâchées contre vos ennemis. Il existe de nombreux animaux : chats, labradors, ours grizzlis, chameaux, pumas, chinchillas, poulets, et des formes de vie extraterrestres bien plus exotiques.\n\nLes personnages de RimWorld surveillent en continu leur situation et leur environnement pour savoir comment ils doivent se sentir. Ils réagissent à la faim et à la fatigue, à la vue de la mort et aux cadavres laissés sans rites funéraires, à leurs blessures, à l’obscurité, à la promiscuité, au fait de dormir dehors ou dans la même pièce que d’autres, et à bien d’autres situations. S’ils sont trop stressés, ils peuvent exploser de colère ou faire une dépression nerveuse.\n\nLes blessures, infections, prothèses et maladies chroniques sont simulées au niveau de chaque partie du corps, et affectent les capacités des personnages. Une blessure à l'œil rend plus difficile le tir ou la chirurgie. Une jambe cassée ralentit les déplacements. Les mains, le cerveau, la bouche, le cœur, le foie, les reins, l’estomac, les pieds, les doigts et les orteils peuvent tous être blessés, malades ou manquants - et chaque dégât a des effets de gameplay correspondants. Cha",
+    "developers": [
+      "Ludeon Studios"
+    ],
+    "publishers": [
+      "Ludeon Studios"
+    ],
+    "releaseDate": "17 oct. 2018",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Indépendant",
+      "Simulation",
+      "Stratégie"
+    ],
+    "features": [
+      "Solo",
+      "Workshop Steam",
+      "Taille de texte réglable",
+      "Caméra et confort de vue",
+      "Contrôle du volume différencié",
+      "Difficulté ajustable",
+      "Option souris uniquement",
+      "Jouable sans saisie en temps imparti",
+      "Sauvegarde à tout moment",
+      "Compat. contrôleurs partielle",
+      "Steam Cloud",
+      "Remote Play sur tablette",
+      "Partage familial"
+    ],
+    "languages": "Anglais, Français, Allemand, Polonais, Russe, Italien, Espagnol - Espagne, Tchèque, Danois, Néerlandais, Hongrois, Japonais, Norvégien, Portugais du Portugal, Portugais du Brésil, Chinois simplifié, Suédois, Chinois traditionnel, Turc, Ukrainien, Finnois, Coréen, Roumain, Espagnol - Amérique latine",
+    "website": "https://ludeon.com",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/80e383ef19353058791efe17a6485849246c9c17/ss_80e383ef19353058791efe17a6485849246c9c17.1920x1080.jpg?t=1782756789",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/a6158c5cef23ac8157b37dd3eb17f3c2d2649e93/ss_a6158c5cef23ac8157b37dd3eb17f3c2d2649e93.1920x1080.jpg?t=1782756789",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/cccfece4c643fd32d438642fbea1b980bc519a48/ss_cccfece4c643fd32d438642fbea1b980bc519a48.1920x1080.jpg?t=1782756789",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/57c3e8d556d47bb5ad048699643528aefc652aa6/ss_57c3e8d556d47bb5ad048699643528aefc652aa6.1920x1080.jpg?t=1782756789",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/59a1400eff99e2b620d623d3d76a02c1592a72e7/ss_59a1400eff99e2b620d623d3d76a02c1592a72e7.1920x1080.jpg?t=1782756789",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f/ss_1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f.1920x1080.jpg?t=1782756789"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation  *: Windows 7\n\nProcesseur : Core 2 Duo\n\nMémoire vive : 4 GB de mémoire\n\nGraphiques : Intel HD Graphics 4000 or other shader model 4.0\n\nEspace disque : 1 GB d'espace disque disponible",
+      "recommended": ""
+    }
+  },
+  "oxygen": {
+    "steamAppId": 457140,
+    "shortDescription": "Oxygen Not Included is a space-colony simulation game. Deep inside an alien space rock your industrious crew will need to master science, overcome strange new lifeforms, and harness incredible space tech to survive, and possibly, thrive.",
+    "description": "In the space-colony simulation game Oxygen Not Included you’ll find that scarcities of oxygen, warmth and sustenance are constant threats to your colony's survival. Guide colonists through the perils of subterranean asteroid living and watch as their population grows until they're not simply surviving, but thriving... \n\nJust make sure you don't forget to breathe.\n\nBuild Extensive Bases and Discover What it Takes to Survive:Everything in your space colony is under your control, from excavation and resource allocation right down to plumbing and power systems. Resources will begin depleting with your first breath, however, so be sure to dig fast if you want to live.\n\nIt’s Mind Over Matter with Stress Simulations:Keep the psychological impact of survival at bay with fun leisure activities, great accommodations and even better food for your colony. Duplicants each have different and potentially destructive ways of reacting to stress, so be sure to always keep them happy. Whatever the cost.\n\nAvoid Boiling with Thermodynamics:Temperature control is a constant concern in space; too cold and you'll freeze, too hot and you'll fry. Keep tabs on ambient environmental temperatures and your colony's heat production to maintain a nice, cozy atmosphere for your colonists.\n\nEnhance Efficiency through Complex Gas and Liquid Simulations:Create interlocking pipe systems to swiftly deliver fuel and liquid to critical areas of your base. Plan well and be rewarded as your colony transforms into an imperishable, well-oiled machine.\n\nTake Charge with Power Grid Simulations:Choose from a multitude of power sources including coal, hydrogen, natural gas or just plain old elbow grease. Manage power runoff, circuit overloads and meltdowns to keep your colony running smoothly.\n\nAlways Keep Yourself Breathing:Enter the Oxygen Overlay and watch air moving through your base in real time. Monitor carbon dioxide accumulation and oversee oxygen generation processes to mold your colony into a veritable deep-space oasis.\n\nWaste Nothing through Extreme Recycling:Make use of every last resource for a base that truly exemplifies efficiency. Recycle waste into precious fuel, process unbreathable gas into air or harness the natural bodily processes of wild creatures for food. If you’re clever, you might even be able to run a base off colonist farts.\n\nExplore Diverse, Procedurally Generated New Worlds:Summon new worlds with a push of a button. Experience tons of untamed space rocks, then suffocate to death in them!",
+    "developers": [
+      "Klei Entertainment"
+    ],
+    "publishers": [
+      "Klei Entertainment"
+    ],
+    "releaseDate": "30 juil. 2019",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "genres": [
+      "Indépendant",
+      "Simulation"
+    ],
+    "features": [
+      "Solo",
+      "Cartes à échanger Steam",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Chinois simplifié*, Coréen*, Russe*\n*Langues avec support audio complet",
+    "website": "https://www.kleientertainment.com/games/oxygen-not-included",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_78d1c92edeecc7b17cafa9248867fe7d4390a0a0.1920x1080.jpg?t=1790785089",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_67ab224dd8c781d5a27ee52657173298873d439a.1920x1080.jpg?t=1790785089",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_ba2b8c362327add29b08182d13b04bf502e065cd.1920x1080.jpg?t=1790785089",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_c5e20abaf2c82f9156da9c80b2ec7c0aefc46254.1920x1080.jpg?t=1790785089",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_24a4ffeaf41ea6d782fef203177243d36c185506.1920x1080.jpg?t=1790785089",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_02af9f36ca186bba1d0f2d5819d169e741076b46.1920x1080.jpg?t=1790785089"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10 version 21H1 or later\n\nProcesseur : Dual Core 2 GHz\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Intel HD 4600 (AMD or NVIDIA equivalent)\n\nDirectX : Version 11\n\nEspace disque : 3 GB d'espace disque disponible",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 11\n\nProcesseur : Intel Core i7-8700K or equivalent\n\nMémoire vive : 16 GB de mémoire\n\nGraphiques : Dedicated graphic card with 2GB VRAM\n\nDirectX : Version 11\n\nEspace disque : 3 GB d'espace disque disponible"
+    }
+  },
+  "nomanssky": {
+    "steamAppId": 275850,
+    "shortDescription": "No Man's Sky est un jeu de science-fiction sur l'exploration et la survie dans un univers infini généré de manière dynamique.",
+    "description": "Inspiré par l'aventure et l'imagination qui nous fascinent dans les films de science-fiction classique, No Man's Sky vous présente une galaxie à explorer, remplie de planètes et de formes de vie uniques, dans un environnement bourré de danger et d'action.\n\nDans No Man's Sky, chaque étoile est la lumière d'un soleil lointain, en orbite duquel se trouvent des planètes pleines de vie. Et vous pouvez aller où vous voulez. Volez sans interruption de l'espace à la surface des planètes, sans écran de chargement ni limite. Dans cet univers infini généré de manière dynamique, vous découvrirez des lieux et des créatures qu'aucun autre joueur n'a jamais vus... et qui n'existeront peut-être jamais ailleurs.\nEmbarquez pour un voyage épiqueAu centre de la galaxie se trouve une impulsion irrésistible, qui vous attire au cours d'une quête pour comprendre la véritable nature du cosmos. Mais face à des créatures hostiles et de féroces pirates, vous apprendrez que la mort a un prix, et que la survie dépendra des choix que vous ferez quant à l'amélioration de votre vaisseau, de votre arme et de votre tenue.\nTrouvez votre propre destinVous seul déciderez de votre voyage dans No Man's Sky. Serez-vous un guerrier, prêt à s'attaquer aux faibles pour leur voler leur trésor, ou éliminerez-vous les pirates pour toucher les primes ? Si vous améliorez les réacteurs et les armes de votre vaisseau, vous deviendrez puissant.\n\nOu bien un marchand ? Trouvez des ressources précieuses sur des mondes oubliés et exploitez-les pour devenir riche. Investissez dans une soute plus grande pour faire fortune.\n\nOu encore explorateur ? Dépassez la frontière connue et découvrez des lieux et des choses que personne n'a jamais vus. Améliorez vos moteurs pour sauter encore plus loin, renforcez votre combinaison pour survivre aux environnements toxiques qui tueraient les imprudents.\nPartagez votre voyageLa galaxie est un lieu vivant, autonome. Les convois marchands circulent entre les étoiles, les factions se disputent leurs territoires, les pirates traquent les imprudents, et la police veille. Tous les autres joueurs vivent dans la même galaxie, et vous pouvez choisir de partager vos découvertes avec eux sur une carte qui couvre l'espace connu. Vous verrez peut-être le résultat de leurs actions, en plus des vôtres…",
+    "developers": [
+      "Hello Games"
+    ],
+    "publishers": [
+      "Hello Games"
+    ],
+    "releaseDate": "12 aout 2016",
+    "comingSoon": false,
+    "platforms": [
+      "windows",
+      "mac"
+    ],
+    "genres": [
+      "Action",
+      "Aventure"
+    ],
+    "features": [
+      "Solo",
+      "Multijoueur",
+      "PvP",
+      "JcJ en ligne",
+      "Coopération",
+      "Coopération en ligne",
+      "Multijoueur multiplateforme",
+      "Succès Steam",
+      "Compat. contrôleurs complète",
+      "Prise en charge des contrôleurs suivis",
+      "VR prise en charge",
+      "Cartes à échanger Steam",
+      "Taille de texte réglable",
+      "Caméra et confort de vue",
+      "Conversion de la parole en texte (chat)",
+      "Alternatives de couleurs",
+      "Contrôle du volume différencié",
+      "Difficulté ajustable",
+      "Jouable sans saisie en temps imparti",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DUALSHOCK 4",
+      "Prise en charge des manettes DualSense",
+      "Prise en charge des manettes DualSense",
+      "Sauvegarde à tout moment",
+      "Prise en charge de l'API Steam Input",
+      "Son stéréo",
+      "Options de sous-titres",
+      "Son multicanal",
+      "Steam Cloud",
+      "Remote Play sur tablette",
+      "Remote Play sur télévision",
+      "HDR disponible",
+      "Partage familial"
+    ],
+    "languages": "Anglais*, Français*, Italien*, Allemand*, Espagnol - Espagne*, Néerlandais, Japonais*, Coréen*, Polonais*, Portugais du Portugal*, Portugais du Brésil*, Russe*, Chinois simplifié*, Chinois traditionnel*\n*Langues avec support audio complet",
+    "website": "https://www.nomanssky.com/",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/7d45478fbac8b1a41172adf8e598784a7d04b41d/ss_7d45478fbac8b1a41172adf8e598784a7d04b41d.1920x1080.jpg?t=1793196605",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/53afb343452e839000d5eab38d0656fcdad9547b/ss_53afb343452e839000d5eab38d0656fcdad9547b.1920x1080.jpg?t=1793196605",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/6c2ddcffe192b0e155a69aa2a1dd3f33b863033d/ss_6c2ddcffe192b0e155a69aa2a1dd3f33b863033d.1920x1080.jpg?t=1793196605",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/ss_d4884d4d208b3f6a3ecef898559da7a36102fc70.1920x1080.jpg?t=1793196605",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/e9a343b9aaa51b91e14d1cbdf4b8dd11305f1377/ss_e9a343b9aaa51b91e14d1cbdf4b8dd11305f1377.1920x1080.jpg?t=1793196605",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/cad26f1dc67d28327ccdabeecb68d5006ad5639b/ss_cad26f1dc67d28327ccdabeecb68d5006ad5639b.1920x1080.jpg?t=1793196605"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10/11 (64-bit versions)\n\nProcesseur : Intel Core i3\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Nvidia GTX 1060 3GB, AMD RX 470 4GB, Intel UHD graphics 630\n\nEspace disque : 15 GB d'espace disque disponible\n\nPrise en charge VR: SteamVR",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires"
+    }
+  },
+  "dyson": {
+    "steamAppId": 1366540,
+    "shortDescription": "Construisez la fabrique intergalactique la plus efficace dans Dyson Sphere Program ! Exploitez l’énergie des étoiles, collectez des ressources, planifiez vos chaînes de production et développez votre usine jusqu’à un empire galactique.",
+    "description": "Dyson Sphere Program est un jeu de construction sandbox de science-fiction combinant des éléments d’espace, d’aventure, d’exploration et d’automatisation industrielle.\nDans un futur lointain, l’humanité crée un superordinateur nommé « CentreBrain » afin d’exploiter sa puissance de calcul et d’étendre davantage les possibilités des mondes virtuels.\n\nVous incarnez un ingénieur spatial chargé d’un projet lancé par l’alliance spatiale COSMO. Votre mission est colossale : construire des sphères de Dyson — des mégastructures capables d’encercler une étoile et d’en exploiter toute l’énergie — afin de produire l’énergie nécessaire au CentreBrain.\n\nChaque partie propose un univers unique et généré de manière procédurale\n\nCommencez avec un petit atelier et développez-le jusqu’à couvrir toute la galaxie\n\nParticipez à des combats et construisez des structures défensives pour repousser les attaques ennemies\n\nExplorez un vaste univers composé de nombreux corps célestes : étoiles à neutrons, naines blanches, géantes rouges et même trous noirs\n\nAutomatisez la production au-delà des planètes et transportez des ressources entre les systèmes stellaires\n\nDéveloppez vos propres sphères de Dyson\n\nAdmirez vos constructions directement à la surface des planètes\n\nLe système de Blueprint vous permet de sauvegarder vos plans essentiels\n\nPersonnalisez votre mécha et parcourez l’univers avec votre propre création\n\nPour construire une sphère de Dyson, vous devez vous appuyer sur l’automatisation. Commencez simplement, puis augmentez progressivement la complexité. Maximisez une production stable de ressources grâce à des installations automatisées.\nReliez les ressources à l’aide de convoyeurs, transportez les matières premières vers les installations de traitement, puis acheminez les produits vers l’étape suivante. Passez de lignes de transport basiques à des usines complexes aux productions variées. Exploitez votre production pour faire progresser la technologie et remplir les conditions nécessaires à la construction de la sphère de Dyson.\n\nLors de la construction, les bâtiments s’alignent automatiquement sur la grille.\nLors de la pose des convoyeurs, la fonction d’alignement automatique permet un positionnement précis, améliorant considérablement l’efficacité.\nCela permet de créer des lignes de production automatisées à grande échelle.\nLa construction d’une sphère de Dyson repose sur des usines vastes et hautement efficaces.\n\nLa technologie de plans (Blueprint) vous permet de sauvegarder vos conceptions essentielles.\nEnregistrez vos usines sous forme de plans et déployez-les directement ailleurs, sans avoir à répéter les mêmes opérations.\n\nVous pouvez construire des coques de Dyson sur plusieurs orbites, chaque couche étant entièrement personnalisable.\nReliez les différents nœuds de la coque afin de créer les motifs de votre choix.\nChaque sphère de Dyson devient ainsi une œuvre unique façonnée par vos soins.\n\nChaque planète possède une répartition des ressources et des caractéristiques écologiques uniques.\nÀ chaque nouvelle partie, une carte stellaire entièrement générée aléatoirement vous attend, avec des paysages et des gisements de ressources renouvelés.\n\nChaque planète possède sa propre orbite et subit l’influence gravitationnelle de son étoile, entraînant rotation et révolution, ainsi que des cycles jour/nuit déterminés par celle-ci.\nDans cet univers immense, des corps célestes uniques vous attendent également : étoiles à neutrons, naines blanches, géantes rouges et même trous noirs.\n\nLes ressources d’une seule planète peuvent ne pas suffire à un projet d’une telle ampleur. Exploitez celles, abondantes, des autres planètes.\nDépassez les limites du transport planétaire et mettez en place des routes logistiques interstellaires.\nReliez les planètes à l’aide de flottes de transport et tirez parti de leurs ressources uniques afin d’assurer un approvisionnement continu en matières premières pour vos usines.\n\nVous pouvez non seulement personnaliser Icarus avec vos couleurs préférées, mais aussi modifier chaque composant afin de créer votre propre vision d’un mécha industriel futuriste.\n\nLa Nuée des ombres est arrivée, apportant d’innombrables défis à la construction de vos usines.\nEn plus de votre objectif de bâtir la sphère de Dyson, vous devrez également vous concentrer sur la défense de vos installations dans Rise of the Dark Fog.\nLa Nuée des ombres fera tout pour entraver la progression du « Dyson Sphere Program », et Icarus sera lui aussi une cible de leurs attaques.\nPréparez-vous !\n\nNe comptez pas uniquement sur Icarus pour faire face au nombre écrasant de la Nuée des ombres.\nCOSMO a mis en place des plans de secours pour vous aider à repousser leurs attaques. En construisant vos usines, vous devrez également déployer des structures défensives essentielles.\nPlus votre activité est intense, plus la Nuée des ombres lancera des assauts violents et fréquents.\nUtilisez vos défenses pour déclencher de véritables « feux d’artifice » et disperser la Nuée des ombres.\n\nNous sommes Youthcat Studio, basé à Chongqing, en Chine.\nPartis d’une équipe de cinq personnes, nous avons grandi progressivement (sans excès) aux côtés de Dyson Sphere Program.\nAnimés par notre passion pour la science-fiction, nous avons créé ce jeu — vous emmenant de la construction de votre première machine minière jusqu’à l’établissement d’usines automatisées à travers le cosmos.\nNous espérons que vous prendrez autant de plaisir à y jouer que nous en avons eu à le développer.\nPour suivre les dernières actualités, n’hésitez pas à nous suivre sur nos réseaux sociaux :\nTwitter(X): @DysonProgram\nDiscord: Dyson Sphere Program\nReddit: r/Dyson_Sphere_Program\nTikTok: @youthcatgames",
+    "developers": [
+      "Youthcat Studio"
+    ],
+    "publishers": [
+      "Gamirror Games"
+    ],
+    "releaseDate": "20 janv. 2021",
+    "comingSoon": false,
+    "platforms": [
+      "windows"
+    ],
+    "genres": [
+      "Indépendant",
+      "Simulation",
+      "Stratégie",
+      "Accès anticipé"
+    ],
+    "features": [
+      "Solo",
+      "Succès Steam",
+      "Partage familial"
+    ],
+    "languages": "Chinois simplifié*, Anglais*, Français*, Allemand*, Japonais*\n*Langues avec support audio complet",
+    "website": "",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_7886f76352c9e2bf2bf2fe74434b8a50bb3312d3.1920x1080.jpg?t=1776523171",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_ca1c8ba11e539cbeb8f4d91f6685b0fa01ddf705.1920x1080.jpg?t=1776523171",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_322d8cbffdd077e743ad1dbe82fee756c77659a2.1920x1080.jpg?t=1776523171",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_36242c2930a50355982a0da128f37e23e25a1047.1920x1080.jpg?t=1776523171",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_602b6ca003277c4a70f63bd723a494a5558e1aee.1920x1080.jpg?t=1776523171",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/ss_7b635ae1ca6d88b52fca183407f06cfd94850b26.1920x1080.jpg?t=1776523171"
+    ],
+    "requirements": {
+      "minimum": "Minimale :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation  *: Windows 7(64-Bit)\n\nProcesseur : i3-530 2.93GHZ 2 Core\n\nMémoire vive : 8 GB de mémoire\n\nGraphiques : Dedicated graphics card, GTX 750 Ti 2GB\n\nDirectX : Version 11\n\nEspace disque : 5 GB d'espace disque disponible\n\nCarte son : DirectX compatible\n\nNotes supplémentaires : GPU must support Shader Model 5.0",
+      "recommended": "Recommandée :\n\nSystème d'exploitation et processeur 64 bits nécessaires\n\nSystème d'exploitation : Windows 10(64-Bit)\n\nProcesseur : i9 11900KF8 Core\n\nMémoire vive : 32 GB de mémoire\n\nGraphiques : Dedicated graphics card, GTX 2070\n\nDirectX : Version 11\n\nEspace disque : 20 GB d'espace disque disponible\n\nCarte son : DirectX compatible\n\nNotes supplémentaires : GPU must support Shader Model 5.0. Display Resolution 1080p +"
+    }
+  }
+}

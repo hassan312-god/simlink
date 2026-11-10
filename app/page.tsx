@@ -1,181 +1,55 @@
 'use client';
 import {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {
-  Home as HomeIcon, LayoutGrid, Library, Search, SlidersHorizontal, Heart, Bell,
-  ChevronLeft, ChevronRight, ChevronDown, Play, Download, Gamepad2, Minus, Square, X,
-  Bookmark,
-} from 'lucide-react';
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from '@/components/ui/dialog';
+import {ArrowRight, Bell, Bot, BookOpen, Boxes, ChevronLeft, ChevronRight, Compass, Download, Gamepad2, Heart, Home, Library, Search, ShieldCheck, Sparkles} from 'lucide-react';
 import {games, type Game} from '@/lib/games';
-import {cn} from '@/lib/utils';
 
-const order = ['minecraft', 'factorio', 'kerbal', 'flight', 'truck', 'stardew', 'cities'];
-const sorted = [...order.map(id => games.find(g => g.id === id)!).filter(Boolean), ...games.filter(g => !order.includes(g.id))];
-const fastLaunch = sorted.slice(0, 7);
-const categories = ['Tous', 'Sandbox', 'Gestion', 'Simulation'];
-
-function readFavorites(): string[] {
+const featuredGames = ['minecraft', 'satisfactory', 'flight', 'factorio'].map(id => games.find(g => g.id === id)!).filter(Boolean);
+const cover = (g: Game) => 'cover' in g && typeof g.cover === 'string' ? g.cover : g.image;
+function storedFavorites(): string[] {
   if (typeof window === 'undefined') return [];
-  try {
-    const stored = JSON.parse(localStorage.getItem('simlink-favorites') || '[]');
-    return Array.isArray(stored) ? stored.filter(x => typeof x === 'string' && games.some(g => g.id === x)) : [];
-  } catch { return []; }
+  try { const a = JSON.parse(localStorage.getItem('simlink-favorites') || '[]'); return Array.isArray(a) ? a.filter((id): id is string => typeof id === 'string' && games.some(g => g.id === id)) : []; } catch { return []; }
 }
 
-function status(g: Game) {
-  return g.ready ? 'CONNECTEUR V0.1' : 'CONCEPT';
-}
-
-export default function Home() {
-  const [view, setView] = useState<'home' | 'categories' | 'library'>('home');
-  const [category, setCategory] = useState('Tous');
+export default function HomePage() {
+  const [view, setView] = useState<'home'|'explore'|'library'>('home');
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('Tous');
   const [featured, setFeatured] = useState(0);
-  const [liked, setLiked] = useState<string[]>(readFavorites);
-  const [loaded, setLoaded] = useState(false);
-  const [notice, setNotice] = useState(false);
-
-  useEffect(() => {
-    // Persist after the first client render; the initial value came from storage.
-    if (loaded) try { localStorage.setItem('simlink-favorites', JSON.stringify(liked)); } catch {}
-    else queueMicrotask(() => setLoaded(true));
-  }, [liked, loaded]);
-
-  const like = (id: string) => setLiked(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
-  const hero = sorted[featured];
-  const sideLeft = [sorted[(featured + 5) % 7], sorted[(featured + 6) % 7]];
-  const sideRight = [sorted[(featured + 1) % 7], sorted[(featured + 2) % 7]];
-  const next = () => setFeatured(f => (f + 1) % sorted.length);
-  const prev = () => setFeatured(f => (f + sorted.length - 1) % sorted.length);
-
-  const grid = sorted.filter(g =>
-    (view !== 'library' || liked.includes(g.id)) &&
-    (category === 'Tous' || g.category === category) &&
-    g.name.toLowerCase().includes(query.toLowerCase()));
-  const rowTitle = view === 'library' ? 'Ma bibliothèque' : view === 'categories' ? 'Catégories' : 'Jeux à explorer';
-
-  return (
-    <div className="store-bg">
-      <div className="store-window">
-        <div className="window-controls" aria-hidden="true"><Minus size={13}/><Square size={11}/><X size={13}/></div>
-
-        <aside className="side">
-          <Link className="logo" href="/">
-            <span className="logo-mark"><Gamepad2 size={20}/></span>
-            <span><b>SIMLINK</b><small>GAMESTORE · MCP</small></span>
-          </Link>
-          <nav className="side-nav" aria-label="Navigation">
-            {([['home', 'Accueil', HomeIcon], ['categories', 'Catégories', LayoutGrid], ['library', 'Ma bibliothèque', Library]] as const).map(([id, label, Icon]) => (
-              <button key={id} className={cn(view === id && 'active')} onClick={() => { setView(id); setCategory('Tous'); }} aria-current={view === id ? 'page' : undefined}>
-                <Icon size={16}/>{label}
-              </button>
-            ))}
-          </nav>
-          <span className="side-label">JEUX À EXPLORER</span>
-          <div className="fast-list">
-            {fastLaunch.map(g => (
-              <Link key={g.id} href={'/jeux/' + g.id}>
-                <img src={g.image} alt="" width={30} height={30}/><span>{g.name}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="side-bottom">
-            <a className="download-card" href="/install">
-              <img src="/games/minecraft-build.webp" alt=""/>
-              <div><b>Simlink Local 0.1.0</b><span>Moteur Minecraft · RCON</span>
-                <div className="bar"><i style={{width: '68%'}}/></div></div>
-              <small>68%</small>
-            </a>
-          </div>
-        </aside>
-
-        <main className="content">
-          <header className="topbar">
-            <label className="search">
-              <Search size={15}/>
-              <input placeholder="Rechercher un jeu" value={query} onChange={e => setQuery(e.target.value)} aria-label="Rechercher un jeu"/>
-              <SlidersHorizontal size={15}/>
-            </label>
-            <div className="top-right">
-              <button className="icon-btn" aria-label="Favoris" onClick={() => setView('library')}><Heart size={16}/>{liked.length > 0 && <span className="dot">{liked.length}</span>}</button>
-              <button className="icon-btn" aria-label="Notifications" onClick={() => setNotice(true)}><Bell size={16}/><span className="dot">1</span></button>
-              <a className="profile" href="/install">
-                <span className="avatar">S</span>
-                <span><b>Simlink Local</b><small>Installer le moteur</small></span>
-              </a>
-            </div>
-          </header>
-
-          {view === 'home' && (
-            <section className="carousel" aria-label="À la une">
-              {sideLeft.map((g, i) => (
-                <button key={g.id} className={cn('fan', i === 0 ? 'fan-far-left' : 'fan-left')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
-                  <img src={g.image} alt=""/>
-                </button>
-              ))}
-              <article className="feature" style={{backgroundImage: `url(${hero.image})`}}>
-                <div className="feature-shade"/>
-                <button className={cn('heart', liked.includes(hero.id) && 'on')} aria-pressed={liked.includes(hero.id)} aria-label="Ajouter aux favoris" onClick={() => like(hero.id)}><Heart size={15}/></button>
-                <div className="feature-text">
-                  <h1>{hero.name}</h1>
-                  <p>{hero.description}</p>
-                  <div className="feature-actions">
-                    <Link className="pill" href={'/jeux/' + hero.id}>DÉCOUVRIR</Link>
-                    <Link className="round" aria-label={'Voir la page de ' + hero.name} href={'/jeux/' + hero.id}><Play size={13} fill="currentColor"/></Link>
-                  </div>
-                </div>
-              </article>
-              {sideRight.map((g, i) => (
-                <button key={g.id} className={cn('fan', i === 0 ? 'fan-right' : 'fan-far-right')} onClick={() => setFeatured(sorted.indexOf(g))} aria-label={'Mettre en avant ' + g.name}>
-                  <img src={g.image} alt=""/>
-                </button>
-              ))}
-            </section>
-          )}
-
-          <section className="row-head">
-            <h2>{rowTitle}</h2>
-            <div className="row-tools">
-              {view === 'categories' && categories.map(c => (
-                <button key={c} className={cn('chip', category === c && 'chip-on')} onClick={() => setCategory(c)}>{c}</button>
-              ))}
-              <button className="link" onClick={() => setView(view === 'home' ? 'categories' : 'home')}>{view === 'home' ? 'Voir tout' : 'Accueil'}</button>
-              <button className="arrow" aria-label="Précédent" onClick={prev}><ChevronLeft size={14}/></button>
-              <button className="arrow" aria-label="Suivant" onClick={next}><ChevronRight size={14}/></button>
-            </div>
+  const [favorites, setFavorites] = useState<string[]>(storedFavorites);
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => { setHydrated(true); }, []);
+  useEffect(() => { if (hydrated) localStorage.setItem('simlink-favorites', JSON.stringify(favorites)); }, [favorites, hydrated]);
+  const toggle = (id: string) => setFavorites(a => a.includes(id) ? a.filter(x => x !== id) : [...a, id]);
+  const active = featuredGames[featured];
+  const filtered = games.filter(g => (view !== 'library' || favorites.includes(g.id)) && (category === 'Tous' || g.category === category) && (g.name+' '+g.genre+' '+g.studio).toLocaleLowerCase('fr').includes(query.toLocaleLowerCase('fr')));
+  return <>
+    <div className="desktop-required"><Gamepad2 size={32}/><h1>Simlink sur ordinateur</h1><p>Cette interface est conçue pour un PC ou un ordinateur portable.</p></div>
+    <div className="launcher">
+      <aside className="launcher-side">
+        <Link href="/" className="launcher-brand"><span className="brand-glyph"><Gamepad2 size={21}/></span><span>SIMLINK<small>JEUX · MODS · IA</small></span></Link>
+        <span className="side-caption">MENU</span>
+        <nav className="launcher-nav" aria-label="Navigation principale">
+          <button className={view === 'home' ? 'selected' : ''} onClick={() => {setView('home');setCategory('Tous')}}><Home size={17}/> Accueil</button>
+          <button className={view === 'explore' ? 'selected' : ''} onClick={() => setView('explore')}><Compass size={17}/> Explorer</button>
+          <button className={view === 'library' ? 'selected' : ''} onClick={() => setView('library')}><Library size={17}/> Ma bibliothèque</button>
+          <Link href="/install"><Boxes size={17}/> Connecteur local</Link>
+        </nav>
+        <div className="side-rule"/><span className="side-caption">JEUX DU CATALOGUE</span>
+        <nav className="launcher-games" aria-label="Jeux du catalogue">{games.slice(0,7).map(g => <Link href={'/jeux/'+g.id} key={g.id}><img src={cover(g)} alt=""/><span>{g.name}</span></Link>)}</nav>
+        <div className="side-foot"><Link href="/install"><Download size={17}/><span>Simlink Local<small>Installer le moteur Minecraft</small></span><ArrowRight size={15}/></Link></div>
+      </aside>
+      <div className="launcher-center">
+        <header className="launcher-header"><label className="launcher-search"><Search size={18}/><input aria-label="Rechercher un jeu" placeholder="Rechercher un jeu, un studio ou un genre" value={query} onChange={e => setQuery(e.target.value)}/></label><div className="launcher-header-actions"><button aria-label="Afficher mes favoris" onClick={() => setView('library')}><Heart size={18}/></button><Link href="/install" aria-label="Guide Simlink"><BookOpen size={18}/></Link><span className="profile-chip"><span>S</span> Simlink Local</span></div></header>
+        <div className="launcher-scroll">
+          {view !== 'library' && <section className="launcher-hero" aria-label="Jeu à la une"><img src={active.image} alt=""/><div className="launcher-hero-overlay"/><div className="launcher-hero-copy"><span>{active.ready ? 'CONNECTEUR DISPONIBLE' : 'JEU DU CATALOGUE · CONCEPT'}</span><h1>{active.name}</h1><p>{active.description}</p><Link href={'/jeux/'+active.id}>Découvrir le jeu <ArrowRight size={17}/></Link></div><div className="hero-controls"><button aria-label="Jeu précédent" onClick={() => setFeatured((featured-1+featuredGames.length)%featuredGames.length)}><ChevronLeft size={18}/></button><button aria-label="Jeu suivant" onClick={() => setFeatured((featured+1)%featuredGames.length)}><ChevronRight size={18}/></button></div></section>}
+          <section className="launcher-catalog" aria-label="Catalogue des jeux"><div className="catalog-title"><div><span>SIMLINK STORE</span><h2>{view === 'library' ? 'Ma bibliothèque' : 'Découvrez les jeux'}</h2></div><p>{filtered.length} jeu{filtered.length>1?'x':''} · 1 connecteur disponible</p></div>
+            <div className="catalog-filters" role="group" aria-label="Catégories">{['Tous','Sandbox','Gestion','Simulation'].map(c => <button key={c} className={category===c?'selected':''} onClick={() => setCategory(c)}>{c}</button>)}</div>
+            {filtered.length ? <div className="launcher-grid">{filtered.map(g => <article className="launcher-item" key={g.id}><Link href={'/jeux/'+g.id} className="launcher-poster"><img src={cover(g)} alt={'Visuel de '+g.name} loading="lazy"/></Link><div className="launcher-item-info"><span>{g.genre}</span><button aria-label={(favorites.includes(g.id)?'Retirer des':'Ajouter aux')+' favoris : '+g.name} aria-pressed={favorites.includes(g.id)} onClick={() => toggle(g.id)}><Heart size={16} fill={favorites.includes(g.id)?'currentColor':'none'}/></button></div><Link href={'/jeux/'+g.id} className="launcher-item-name">{g.name}</Link><span className={g.ready?'item-state available':'item-state'}>{g.ready?'Connecteur disponible':'Concept à développer'}</span></article>)}</div> : <div className="catalog-empty"><Search size={22}/><p>{view==='library'?'Aucun favori enregistré.':'Aucun jeu ne correspond.'}</p><button onClick={() => {setView('home');setQuery('');setCategory('Tous')}}>Voir tous les jeux</button></div>}
           </section>
-
-          <section className="cards">
-            {grid.map(g => (
-              <article key={g.id} className="card">
-                <Link className="cover" href={'/jeux/' + g.id} aria-label={'Ouvrir la page de ' + g.name}>
-                  <img src={'cover' in g && typeof g.cover === 'string' ? g.cover : g.image} alt={'Visuel de ' + g.name} loading="lazy"/>
-                </Link>
-                <div className="card-title">
-                  <h3><Link href={'/jeux/' + g.id}>{g.name}</Link></h3>
-                  <button className={cn('mini-heart', liked.includes(g.id) && 'on')} aria-pressed={liked.includes(g.id)} aria-label={'Favori ' + g.name} onClick={() => like(g.id)}><Heart size={13}/></button>
-                </div>
-                <div className="price"><span className={cn('badge', g.ready ? 'green' : 'blue')}>{g.ready ? 'CONNECTABLE' : 'CONCEPT'}</span><span>{g.genre}</span></div>
-              </article>
-            ))}
-            {grid.length === 0 && (
-              <div className="empty">
-                <Bookmark size={22}/>
-                <p>{view === 'library' ? 'Aucun favori pour l’instant. Touchez le cœur d’un jeu pour le retrouver ici.' : 'Aucun jeu ne correspond.'}</p>
-              </div>
-            )}
-          </section>
-        </main>
+        </div>
       </div>
-
-      <Dialog open={notice} onOpenChange={setNotice}>
-        <DialogContent className="store-dialog">
-          <DialogHeader><DialogTitle>Simlink Local 0.1.0</DialogTitle><DialogDescription>Première version du moteur Minecraft Java.</DialogDescription></DialogHeader>
-          <p className="dialog-copy">Le moteur lit l’état d’un serveur Minecraft Java via RCON et propose des actions que vous approuvez localement. Les visuels des jeux appartiennent à leurs éditeurs ; Simlink est un projet indépendant.</p>
-          <a className="pill" href="/install"><Download size={14}/>Voir le guide d’installation</a>
-        </DialogContent>
-      </Dialog>
+      <aside className="launcher-rail" aria-label="État des connexions"><div className="rail-heading"><Bot size={19}/> Assistants IA</div><p className="rail-intro">Les clés API et les connexions aux modèles ne sont pas encore configurables dans cette version.</p><div className="provider-list">{['Claude','Gemini','GPT'].map(n => <div key={n}><span className="provider-dot"/><strong>{n}</strong><small>Non configuré</small></div>)}</div><div className="rail-divider"/><div className="rail-heading"><Sparkles size={19}/> Objectifs autonomes</div><p className="rail-intro">La poursuite autonome d’un objectif dans le jeu demande encore un adaptateur de contrôle et des limites d’action.</p><div className="rail-status"><ShieldCheck size={16}/> En développement</div><Link className="rail-action" href="/jeux/minecraft">Voir le premier connecteur <ArrowRight size={15}/></Link><div className="rail-bottom">Simlink ne fournit pas les jeux de ce catalogue.</div></aside>
     </div>
-  );
+  </>;
 }
