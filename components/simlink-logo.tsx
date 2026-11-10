@@ -1,0 +1,3 @@
+export function SimlinkLogo({size = 42}: {size?: number}) {
+  return <svg width={size} height={size} viewBox="0 0 48 48" fill="none" role="img" aria-label="Logo Simlink"><defs><linearGradient id="simlink-mark" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stopColor="#FF5145"/><stop offset=".54" stopColor="#F32629"/><stop offset="1" stopColor="#FB7B31"/></linearGradient></defs><path d="M17 6h13l5 6-5 6H18l-6 6 6 6h11l-5 7H16L5 26v-5L17 6Z" fill="url(#simlink-mark)"/><path d="M31 42H18l-5-6 5-6h12l6-6-6-6H19l5-7h8l11 11v5L31 42Z" fill="url(#simlink-mark)"/><path d="m19 18 7 0-5 6 5 6h-7l-5-6 5-6Z" fill="#101114"/></svg>;
+}

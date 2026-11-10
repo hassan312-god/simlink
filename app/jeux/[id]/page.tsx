@@ -5,6 +5,7 @@ import {ArrowLeft, ArrowUpRight, Download, Gamepad2, ShieldCheck, Sparkles} from
 import {games} from '@/lib/games';
 import details from '@/lib/game-details.json';
 import {GameGallery} from '@/components/game-gallery';
+import {SimlinkLogo} from '@/components/simlink-logo';
 
 export function generateStaticParams() {
   return games.map(game => ({id: game.id}));
@@ -24,14 +25,14 @@ export default async function GamePage({params}: {params: Promise<{id: string}>}
   const related = games.filter(item => item.id !== id && item.category === game.category).slice(0, 3);
 
   return (
-    <div className="detail-shell"><aside className="launcher-side detail-side"><Link href="/" className="launcher-brand"><span className="brand-glyph"><Gamepad2 size={21}/></span><span>SIMLINK<small>JEUX · MODS · IA</small></span></Link><span className="side-caption">MENU</span><nav className="launcher-nav" aria-label="Navigation principale"><Link href="/">Accueil</Link><Link href="/">Explorer</Link><Link href="/">Ma bibliothèque</Link><Link href="/install">Connecteur local</Link></nav><div className="side-rule"/><span className="side-caption">JEUX DU CATALOGUE</span><nav className="launcher-games" aria-label="Jeux du catalogue">{games.slice(0, 7).map(item => <Link href={`/jeux/${item.id}`} key={item.id} aria-current={item.id === id ? 'page' : undefined}><img src={'cover' in item && typeof item.cover === 'string' ? item.cover : item.image} alt=""/><span>{item.name}</span></Link>)}</nav></aside><main className="game-page">
+    <div className="detail-shell"><aside className="launcher-side detail-side"><Link href="/" className="launcher-brand"><SimlinkLogo/><span>SIMLINK</span></Link><span className="side-caption">MENU</span><nav className="launcher-nav" aria-label="Navigation principale"><Link href="/">Accueil</Link><Link href="/">Explorer</Link><Link href="/">Ma bibliothèque</Link><Link href="/install">Connecteur local</Link></nav><div className="side-rule"/><span className="side-caption">JEUX DU CATALOGUE</span><nav className="launcher-games" aria-label="Jeux du catalogue">{games.slice(0, 7).map(item => <Link href={`/jeux/${item.id}`} key={item.id} aria-current={item.id === id ? 'page' : undefined}><img src={'cover' in item && typeof item.cover === 'string' ? item.cover : item.image} alt=""/><span>{item.name}</span></Link>)}</nav></aside><main className="game-page">
       <header className="game-topbar">
         <Link className="game-brand" href="/"><span className="logo-mark"><Gamepad2 size={21}/></span><span>SIMLINK<small>GAMESTORE · MCP</small></span></Link>
         <Link className="game-back" href="/"><ArrowLeft size={16}/> Retour au catalogue</Link>
       </header>
 
       <section className="game-hero" aria-labelledby="game-title">
-        <img className="game-hero-image" src={game.image} alt={`Capture de ${game.name}`}/>
+        <img className="game-hero-image" src={info?.screenshots?.[0] || game.image} alt={`Première capture de ${game.name}`}/>
         <div className="game-hero-shade"/>
         <div className="game-hero-content">
           <span className={`game-status ${game.ready ? 'ready' : ''}`}>{game.ready ? 'CONNECTEUR DISPONIBLE · V0.1' : 'CONCEPT · À DÉVELOPPER'}</span>
