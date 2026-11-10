@@ -2,6 +2,10 @@
 
 Simlink est un projet de plateforme pour relier des jeux de simulation à des assistants IA grâce à des adaptateurs locaux et au protocole MCP. L’objectif est de découvrir des jeux et des mods compatibles, puis de permettre à un assistant de lire l’état du jeu et de proposer des actions que la personne valide.
 
+## Vision du produit
+
+La cible est une application de bureau Electron avec un moteur Rust : jeu installé sur le PC, installation guidée du mod compatible, clé API du fournisseur IA et objectif à réaliser. Cette cible est décrite dans le [document de vision produit](docs/VISION_PRODUIT.md). Le connecteur actuel reste un prototype Python/RCON, comme détaillé ci-dessous.
+
 ## État actuel
 
 | Jeu | Statut dans Simlink | Connexion |
@@ -13,16 +17,8 @@ Simlink est un projet de plateforme pour relier des jeux de simulation à des as
 | Stardew Valley | Concept au catalogue | Adaptateur à développer |
 | Kerbal Space Program | Concept au catalogue | Adaptateur à développer |
 | Factorio | Concept au catalogue | Adaptateur à développer |
-| Satisfactory | Concept au catalogue | Adaptateur à développer |
-| Transport Fever 2 | Concept au catalogue | Adaptateur à développer |
-| Planet Zoo | Concept au catalogue | Adaptateur à développer |
-| Subnautica | Concept au catalogue | Adaptateur à développer |
-| RimWorld | Concept au catalogue | Adaptateur à développer |
-| Oxygen Not Included | Concept au catalogue | Adaptateur à développer |
-| No Man’s Sky | Concept au catalogue | Adaptateur à développer |
-| Dyson Sphere Program | Concept au catalogue | Adaptateur à développer |
 
-Les nombres d’outils affichés pour les quatorze concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod de ces jeux n’est actuellement fourni ou intégré par Simlink.
+Les nombres d’outils affichés pour les six concepts sont des pistes de conception, pas des outils opérationnels. Aucun mod de ces jeux n’est actuellement fourni ou intégré par Simlink.
 
 ## Ce qui fonctionne aujourd’hui
 
