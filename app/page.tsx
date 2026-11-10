@@ -53,7 +53,7 @@ export default function Home() {
     (view !== 'library' || liked.includes(g.id)) &&
     (category === 'Tous' || g.category === category) &&
     g.name.toLowerCase().includes(query.toLowerCase()));
-  const rowTitle = view === 'library' ? 'Ma bibliothèque' : view === 'categories' ? 'Catégories' : 'Connecteurs disponibles';
+  const rowTitle = view === 'library' ? 'Ma bibliothèque' : view === 'categories' ? 'Catégories' : 'Jeux à explorer';
 
   return (
     <div className="store-bg">
